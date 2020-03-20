@@ -1,0 +1,769 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 8em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD16\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">06-01-2020</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">14:53:19</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:10</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc" class="file"><acronym title="C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc">C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">123</td></tr>
+</table>
+</td>
+</table><a name="IDASAQXB"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAEBQXB">Room Buffer_Analog2 (Bounding Region = (113.648mm, 287.774mm, 153.127mm, 311.474mm) (InComponentClass('Buffer_Analog2'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDAKBQXB">Room ADC (Bounding Region = (101.327mm, 305.333mm, 144.427mm, 332.274mm) (InComponentClass('ADC'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAQBQXB">Room Buffer_Analog1 (Bounding Region = (113.648mm, 327.774mm, 152.627mm, 350.474mm) (InComponentClass('Buffer_Analog1'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDAWBQXB">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDA2BQXB">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDACCQXB">Clearance Constraint (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">48</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDALTQXB">Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDARTQXB">Width Constraint (Min=0.127mm) (Max=2mm) (Preferred=0.7mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAXTQXB">Height Constraint (Min=0mm) (Max=50mm) (Prefered=12.7mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDA3TQXB">Hole Size Constraint (Min=0.025mm) (Max=5mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDADUQXB">Hole To Hole Clearance (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDAJUQXB">Minimum Solder Mask Sliver (Gap=0.01mm) (All),(All)</a></td>
+<td class="column2">4</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAHVQXB">Silk To Solder Mask (Clearance=0.015mm) (IsPad),(All)</a></td>
+<td class="column2">69</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDARKRXB">Silk to Silk (Clearance=0mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAXKRXB">Net Antennae (Tolerance=0mm) (All)</a></td>
+<td class="column2">2</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDAJLRXB">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAPLRXB">Room Trip1 (Bounding Region = (164.927mm, 322.564mm, 189.417mm, 332.674mm) (InComponentClass('Trip1'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDAVLRXB">Room Trip2 (Bounding Region = (164.927mm, 332.674mm, 189.417mm, 342.784mm) (InComponentClass('Trip2'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDA1LRXB">Room Trip3 (Bounding Region = (164.927mm, 342.784mm, 189.417mm, 352.894mm) (InComponentClass('Trip3'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDABMRXB">Room Trip4 (Bounding Region = (164.927mm, 352.894mm, 189.417mm, 363.004mm) (InComponentClass('Trip4'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAHMRXB">Room Trip5 (Bounding Region = (164.927mm, 266.444mm, 189.417mm, 276.554mm) (InComponentClass('Trip5'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDANMRXB">Room Trip6 (Bounding Region = (164.927mm, 276.554mm, 189.417mm, 286.664mm) (InComponentClass('Trip6'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDATMRXB">Room Trip7 (Bounding Region = (164.927mm, 286.664mm, 189.417mm, 296.774mm) (InComponentClass('Trip7'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDAZMRXB">Room Trip8 (Bounding Region = (164.927mm, 296.774mm, 189.417mm, 306.884mm) (InComponentClass('Trip8'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDA5MRXB">Clearance Constraint (Gap=0.254mm) (IsNamedPolygon('+3.3V_conector') OR IsNamedPolygon('+5V_conector') OR IsNamedPolygon('GND_Conector') OR IsNamedPolygon('GND_conector2')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDAFNRXB">Room CPLD (Bounding Region = (125.427mm, 264.674mm, 236.327mm, 300.264mm) (InComponentClass('CPLD'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDALNRXB">Room LED_Debug (Bounding Region = (95.927mm, 264.674mm, 147.127mm, 279.774mm) (InComponentClass('LED_Debug'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDARNRXB">Room Analog_Inputs (Bounding Region = (217.927mm, 298.474mm, 241.127mm, 334.974mm) (InComponentClass('Analog_Inputs'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">123</td>
+</tr>
+</table><br><a name="IDACCQXB"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Clearance Constraint (Gap=0.254mm) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7331.271mil|Location2.X=7344.327mil|Location1.Y=13366.507mil|Location2.Y=13380.291mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7331.271mil|Location2.X=7344.327mil|Location1.Y=13366.507mil|Location2.Y=13380.291mil|Absolute=True">Clearance Constraint: (0.254mm &lt; 0.254mm) Between Region (0 hole(s)) Bottom Layer And Pad DebugB-5(89.967mm,75.701mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7660.113mil|Location2.X=7669.237mil|Location1.Y=10624.789mil|Location2.Y=10633.913mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7660.113mil|Location2.X=7669.237mil|Location1.Y=10624.789mil|Location2.Y=10633.913mil|Absolute=True">Clearance Constraint: (0.199mm &lt; 0.2mm) Between Region (0 hole(s)) Top Layer And Track (98.026mm,4.858mm)(98.634mm,5.467mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7660.113mil|Location2.X=7669.237mil|Location1.Y=10624.789mil|Location2.Y=10633.913mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7660.113mil|Location2.X=7669.237mil|Location1.Y=10624.789mil|Location2.Y=10633.913mil|Absolute=True">Clearance Constraint: (0.199mm &lt; 0.2mm) Between Region (0 hole(s)) Top Layer And Track (98.634mm,5.467mm)(98.634mm,6.737mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8637.978mil|Location2.X=8647.102mil|Location1.Y=12808.203mil|Location2.Y=12817.327mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8637.978mil|Location2.X=8647.102mil|Location1.Y=12808.203mil|Location2.Y=12817.327mil|Absolute=True">Clearance Constraint: (0.192mm &lt; 0.2mm) Between Region (0 hole(s)) Top Layer And Track (103.656mm,60.561mm)(123.679mm,60.561mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8637.978mil|Location2.X=8647.102mil|Location1.Y=12808.203mil|Location2.Y=12817.327mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8637.978mil|Location2.X=8647.102mil|Location1.Y=12808.203mil|Location2.Y=12817.327mil|Absolute=True">Clearance Constraint: (0.192mm &lt; 0.2mm) Between Region (0 hole(s)) Top Layer And Track (123.679mm,60.561mm)(124.246mm,59.995mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4961.414mil|Location2.X=4970.538mil|Location1.Y=12671.569mil|Location2.Y=12680.693mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4961.414mil|Location2.X=4970.538mil|Location1.Y=12671.569mil|Location2.Y=12680.693mil|Absolute=True">Clearance Constraint: (0.2mm &lt; 0.2mm) Between Region (0 hole(s)) Top Layer And Track (27.419mm,57.684mm)(30.329mm,57.684mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4961.414mil|Location2.X=4970.538mil|Location1.Y=12671.569mil|Location2.Y=12680.693mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4961.414mil|Location2.X=4970.538mil|Location1.Y=12671.569mil|Location2.Y=12680.693mil|Absolute=True">Clearance Constraint: (0.2mm &lt; 0.2mm) Between Region (0 hole(s)) Top Layer And Track (30.329mm,57.684mm)(31.449mm,58.804mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8639.188mil|Location2.X=8648.311mil|Location1.Y=12705.887mil|Location2.Y=12715.011mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8639.188mil|Location2.X=8648.311mil|Location1.Y=12705.887mil|Location2.Y=12715.011mil|Absolute=True">Clearance Constraint: (0.19mm &lt; 0.2mm) Between Region (0 hole(s)) Top Layer And Track (107.056mm,57.961mm)(123.739mm,57.961mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8639.188mil|Location2.X=8648.311mil|Location1.Y=12705.887mil|Location2.Y=12715.011mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8639.188mil|Location2.X=8648.311mil|Location1.Y=12705.887mil|Location2.Y=12715.011mil|Absolute=True">Clearance Constraint: (0.19mm &lt; 0.2mm) Between Region (0 hole(s)) Top Layer And Track (123.739mm,57.961mm)(124.246mm,57.455mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8638.766mil|Location2.X=8647.89mil|Location1.Y=12906.663mil|Location2.Y=12915.787mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8638.766mil|Location2.X=8647.89mil|Location1.Y=12906.663mil|Location2.Y=12915.787mil|Absolute=True">Clearance Constraint: (0.19mm &lt; 0.2mm) Between Region (0 hole(s)) Top Layer And Track (101.767mm,63.061mm)(123.719mm,63.061mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8638.766mil|Location2.X=8647.89mil|Location1.Y=12906.663mil|Location2.Y=12915.787mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8638.766mil|Location2.X=8647.89mil|Location1.Y=12906.663mil|Location2.Y=12915.787mil|Absolute=True">Clearance Constraint: (0.19mm &lt; 0.2mm) Between Region (0 hole(s)) Top Layer And Track (123.719mm,63.061mm)(124.246mm,62.535mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8638.562mil|Location2.X=8647.686mil|Location1.Y=12257.049mil|Location2.Y=12266.174mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8638.562mil|Location2.X=8647.686mil|Location1.Y=12257.049mil|Location2.Y=12266.174mil|Absolute=True">Clearance Constraint: (0.19mm &lt; 0.2mm) Between Region (0 hole(s)) Top Layer And Track (123.709mm,46.561mm)(124.246mm,46.025mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8638.562mil|Location2.X=8647.686mil|Location1.Y=12257.049mil|Location2.Y=12266.174mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8638.562mil|Location2.X=8647.686mil|Location1.Y=12257.049mil|Location2.Y=12266.174mil|Absolute=True">Clearance Constraint: (0.19mm &lt; 0.2mm) Between Region (0 hole(s)) Top Layer And Track (70.156mm,46.561mm)(123.709mm,46.561mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8637.659mil|Location2.X=8646.783mil|Location1.Y=12158.601mil|Location2.Y=12167.725mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8637.659mil|Location2.X=8646.783mil|Location1.Y=12158.601mil|Location2.Y=12167.725mil|Absolute=True">Clearance Constraint: (0.193mm &lt; 0.2mm) Between Region (0 hole(s)) Top Layer And Track (71.556mm,44.061mm)(123.669mm,44.061mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8637.659mil|Location2.X=8646.783mil|Location1.Y=12158.601mil|Location2.Y=12167.725mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8637.659mil|Location2.X=8646.783mil|Location1.Y=12158.601mil|Location2.Y=12167.725mil|Absolute=True">Clearance Constraint: (0.193mm &lt; 0.2mm) Between Region (0 hole(s)) Top Layer And Track (123.669mm,44.061mm)(124.246mm,43.485mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6728.169mil|Location2.X=6738.422mil|Location1.Y=11029.208mil|Location2.Y=11038.332mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6728.169mil|Location2.X=6738.422mil|Location1.Y=11029.208mil|Location2.Y=11038.332mil|Absolute=True">Clearance Constraint: (0.171mm &lt; 0.2mm) Between Region (0 hole(s)) Bottom Layer And Track (73.947mm,15.504mm)(75.112mm,15.504mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6728.169mil|Location2.X=6738.422mil|Location1.Y=11029.208mil|Location2.Y=11038.332mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6728.169mil|Location2.X=6738.422mil|Location1.Y=11029.208mil|Location2.Y=11038.332mil|Absolute=True">Clearance Constraint: (0.171mm &lt; 0.2mm) Between Region (0 hole(s)) Bottom Layer And Track (75.112mm,15.504mm)(75.602mm,15.014mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6728.169mil|Location2.X=6738.422mil|Location1.Y=14046.924mil|Location2.Y=14056.048mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6728.169mil|Location2.X=6738.422mil|Location1.Y=14046.924mil|Location2.Y=14056.048mil|Absolute=True">Clearance Constraint: (0.171mm &lt; 0.2mm) Between Region (0 hole(s)) Bottom Layer And Track (73.947mm,92.154mm)(75.112mm,92.154mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6728.169mil|Location2.X=6738.422mil|Location1.Y=14046.924mil|Location2.Y=14056.048mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6728.169mil|Location2.X=6738.422mil|Location1.Y=14046.924mil|Location2.Y=14056.048mil|Absolute=True">Clearance Constraint: (0.171mm &lt; 0.2mm) Between Region (0 hole(s)) Bottom Layer And Track (75.112mm,92.154mm)(75.602mm,91.664mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6728.169mil|Location2.X=6738.422mil|Location1.Y=13250.861mil|Location2.Y=13259.985mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6728.169mil|Location2.X=6738.422mil|Location1.Y=13250.861mil|Location2.Y=13259.985mil|Absolute=True">Clearance Constraint: (0.171mm &lt; 0.2mm) Between Region (0 hole(s)) Bottom Layer And Track (73.947mm,71.934mm)(75.112mm,71.934mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6728.169mil|Location2.X=6738.422mil|Location1.Y=13250.861mil|Location2.Y=13259.985mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6728.169mil|Location2.X=6738.422mil|Location1.Y=13250.861mil|Location2.Y=13259.985mil|Absolute=True">Clearance Constraint: (0.171mm &lt; 0.2mm) Between Region (0 hole(s)) Bottom Layer And Track (75.112mm,71.934mm)(75.602mm,71.444mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6728.169mil|Location2.X=6738.422mil|Location1.Y=11825.271mil|Location2.Y=11834.395mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6728.169mil|Location2.X=6738.422mil|Location1.Y=11825.271mil|Location2.Y=11834.395mil|Absolute=True">Clearance Constraint: (0.171mm &lt; 0.2mm) Between Region (0 hole(s)) Bottom Layer And Track (73.947mm,35.724mm)(75.112mm,35.724mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6728.169mil|Location2.X=6738.422mil|Location1.Y=11825.271mil|Location2.Y=11834.395mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6728.169mil|Location2.X=6738.422mil|Location1.Y=11825.271mil|Location2.Y=11834.395mil|Absolute=True">Clearance Constraint: (0.171mm &lt; 0.2mm) Between Region (0 hole(s)) Bottom Layer And Track (75.112mm,35.724mm)(75.602mm,35.234mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6728.169mil|Location2.X=6738.422mil|Location1.Y=13648.893mil|Location2.Y=13658.017mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6728.169mil|Location2.X=6738.422mil|Location1.Y=13648.893mil|Location2.Y=13658.017mil|Absolute=True">Clearance Constraint: (0.171mm &lt; 0.2mm) Between Region (0 hole(s)) Bottom Layer And Track (73.947mm,82.044mm)(75.112mm,82.044mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6728.169mil|Location2.X=6738.422mil|Location1.Y=13648.893mil|Location2.Y=13658.017mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6728.169mil|Location2.X=6738.422mil|Location1.Y=13648.893mil|Location2.Y=13658.017mil|Absolute=True">Clearance Constraint: (0.171mm &lt; 0.2mm) Between Region (0 hole(s)) Bottom Layer And Track (75.112mm,82.044mm)(75.602mm,81.554mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6728.169mil|Location2.X=6738.422mil|Location1.Y=12852.83mil|Location2.Y=12861.954mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6728.169mil|Location2.X=6738.422mil|Location1.Y=12852.83mil|Location2.Y=12861.954mil|Absolute=True">Clearance Constraint: (0.171mm &lt; 0.2mm) Between Region (0 hole(s)) Bottom Layer And Track (73.947mm,61.824mm)(75.112mm,61.824mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6728.169mil|Location2.X=6738.422mil|Location1.Y=12852.83mil|Location2.Y=12861.954mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6728.169mil|Location2.X=6738.422mil|Location1.Y=12852.83mil|Location2.Y=12861.954mil|Absolute=True">Clearance Constraint: (0.171mm &lt; 0.2mm) Between Region (0 hole(s)) Bottom Layer And Track (75.112mm,61.824mm)(75.602mm,61.334mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6728.169mil|Location2.X=6738.422mil|Location1.Y=10631.176mil|Location2.Y=10640.3mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6728.169mil|Location2.X=6738.422mil|Location1.Y=10631.176mil|Location2.Y=10640.3mil|Absolute=True">Clearance Constraint: (0.171mm &lt; 0.2mm) Between Region (0 hole(s)) Bottom Layer And Track (73.947mm,5.394mm)(75.112mm,5.394mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6728.169mil|Location2.X=6738.422mil|Location1.Y=10631.176mil|Location2.Y=10640.3mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6728.169mil|Location2.X=6738.422mil|Location1.Y=10631.176mil|Location2.Y=10640.3mil|Absolute=True">Clearance Constraint: (0.171mm &lt; 0.2mm) Between Region (0 hole(s)) Bottom Layer And Track (75.112mm,5.394mm)(75.602mm,4.904mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6728.169mil|Location2.X=6738.422mil|Location1.Y=11427.239mil|Location2.Y=11436.363mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6728.169mil|Location2.X=6738.422mil|Location1.Y=11427.239mil|Location2.Y=11436.363mil|Absolute=True">Clearance Constraint: (0.171mm &lt; 0.2mm) Between Region (0 hole(s)) Bottom Layer And Track (75.112mm,25.614mm)(75.602mm,25.124mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6728.169mil|Location2.X=6738.422mil|Location1.Y=11427.239mil|Location2.Y=11436.363mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6728.169mil|Location2.X=6738.422mil|Location1.Y=11427.239mil|Location2.Y=11436.363mil|Absolute=True">Clearance Constraint: (0.171mm &lt; 0.2mm) Between Region (0 hole(s)) Bottom Layer And Track (73.947mm,25.614mm)(75.112mm,25.614mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7607.544mil|Location2.X=7616.668mil|Location1.Y=10593.199mil|Location2.Y=10602.323mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7607.544mil|Location2.X=7616.668mil|Location1.Y=10593.199mil|Location2.Y=10602.323mil|Absolute=True">Clearance Constraint: (0.195mm &lt; 0.2mm) Between Region (0 hole(s)) Bottom Layer And Track (94.557mm,1.892mm)(97.399mm,4.735mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7607.544mil|Location2.X=7616.668mil|Location1.Y=10593.199mil|Location2.Y=10602.323mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7607.544mil|Location2.X=7616.668mil|Location1.Y=10593.199mil|Location2.Y=10602.323mil|Absolute=True">Clearance Constraint: (0.195mm &lt; 0.2mm) Between Region (0 hole(s)) Bottom Layer And Track (97.399mm,4.735mm)(97.399mm,6.72mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7621.277mil|Location2.X=7630.401mil|Location1.Y=10583.781mil|Location2.Y=10592.905mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7621.277mil|Location2.X=7630.401mil|Location1.Y=10583.781mil|Location2.Y=10592.905mil|Absolute=True">Clearance Constraint: (0.193mm &lt; 0.2mm) Between Region (0 hole(s)) Bottom Layer And Track (94.852mm,1.181mm)(97.902mm,4.232mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7621.277mil|Location2.X=7630.401mil|Location1.Y=10583.781mil|Location2.Y=10592.905mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7621.277mil|Location2.X=7630.401mil|Location1.Y=10583.781mil|Location2.Y=10592.905mil|Absolute=True">Clearance Constraint: (0.193mm &lt; 0.2mm) Between Region (0 hole(s)) Bottom Layer And Track (97.902mm,4.232mm)(98.398mm,4.232mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4034.848mil|Location2.X=4046.098mil|Location1.Y=12627.673mil|Location2.Y=12638.923mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4034.848mil|Location2.X=4046.098mil|Location1.Y=12627.673mil|Location2.Y=12638.923mil|Absolute=True">Clearance Constraint: (0.2mm &lt; 0.254mm) Between Region (0 hole(s)) Bottom Layer And Region (0 hole(s)) Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4034.848mil|Location2.X=4046.098mil|Location1.Y=12734.76mil|Location2.Y=12746.01mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4034.848mil|Location2.X=4046.098mil|Location1.Y=12734.76mil|Location2.Y=12746.01mil|Absolute=True">Clearance Constraint: (0.2mm &lt; 0.254mm) Between Region (0 hole(s)) Bottom Layer And Region (0 hole(s)) Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4034.848mil|Location2.X=4046.098mil|Location1.Y=12476.886mil|Location2.Y=12488.136mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4034.848mil|Location2.X=4046.098mil|Location1.Y=12476.886mil|Location2.Y=12488.136mil|Absolute=True">Clearance Constraint: (0.2mm &lt; 0.254mm) Between Region (0 hole(s)) Bottom Layer And Region (0 hole(s)) Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4034.848mil|Location2.X=4046.098mil|Location1.Y=12337.909mil|Location2.Y=12349.159mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4034.848mil|Location2.X=4046.098mil|Location1.Y=12337.909mil|Location2.Y=12349.159mil|Absolute=True">Clearance Constraint: (0.2mm &lt; 0.254mm) Between Region (0 hole(s)) Bottom Layer And Region (0 hole(s)) Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7934.704mil|Location2.X=7945.954mil|Location1.Y=10642.176mil|Location2.Y=10653.426mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7934.704mil|Location2.X=7945.954mil|Location1.Y=10642.176mil|Location2.Y=10653.426mil|Absolute=True">Clearance Constraint: (0.251mm &lt; 0.254mm) Between Region (0 hole(s)) Top Layer And Region (0 hole(s)) Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7836.279mil|Location2.X=7847.529mil|Location1.Y=10642.176mil|Location2.Y=10653.426mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7836.279mil|Location2.X=7847.529mil|Location1.Y=10642.176mil|Location2.Y=10653.426mil|Absolute=True">Clearance Constraint: (0.251mm &lt; 0.254mm) Between Region (0 hole(s)) Top Layer And Region (0 hole(s)) Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7816.594mil|Location2.X=7827.844mil|Location1.Y=10642.176mil|Location2.Y=10653.426mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7816.594mil|Location2.X=7827.844mil|Location1.Y=10642.176mil|Location2.Y=10653.426mil|Absolute=True">Clearance Constraint: (0.251mm &lt; 0.254mm) Between Region (0 hole(s)) Top Layer And Region (0 hole(s)) Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7796.909mil|Location2.X=7808.159mil|Location1.Y=10642.176mil|Location2.Y=10653.426mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7796.909mil|Location2.X=7808.159mil|Location1.Y=10642.176mil|Location2.Y=10653.426mil|Absolute=True">Clearance Constraint: (0.251mm &lt; 0.254mm) Between Region (0 hole(s)) Top Layer And Region (0 hole(s)) Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7777.224mil|Location2.X=7788.474mil|Location1.Y=10642.176mil|Location2.Y=10653.426mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7777.224mil|Location2.X=7788.474mil|Location1.Y=10642.176mil|Location2.Y=10653.426mil|Absolute=True">Clearance Constraint: (0.251mm &lt; 0.254mm) Between Region (0 hole(s)) Top Layer And Region (0 hole(s)) Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4883.213mil|Location2.X=4894.463mil|Location1.Y=12552.387mil|Location2.Y=12563.637mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4883.213mil|Location2.X=4894.463mil|Location1.Y=12552.387mil|Location2.Y=12563.637mil|Absolute=True">Clearance Constraint: (0.223mm &lt; 0.254mm) Between Region (0 hole(s)) Top Layer And Region (0 hole(s)) Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4883.213mil|Location2.X=4894.463mil|Location1.Y=12532.135mil|Location2.Y=12543.385mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4883.213mil|Location2.X=4894.463mil|Location1.Y=12532.135mil|Location2.Y=12543.385mil|Absolute=True">Clearance Constraint: (0.252mm &lt; 0.254mm) Between Region (0 hole(s)) Top Layer And Region (0 hole(s)) Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4883.213mil|Location2.X=4894.463mil|Location1.Y=12512.45mil|Location2.Y=12523.7mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4883.213mil|Location2.X=4894.463mil|Location1.Y=12512.45mil|Location2.Y=12523.7mil|Absolute=True">Clearance Constraint: (0.252mm &lt; 0.254mm) Between Region (0 hole(s)) Top Layer And Region (0 hole(s)) Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4883.213mil|Location2.X=4894.463mil|Location1.Y=12492.764mil|Location2.Y=12504.014mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4883.213mil|Location2.X=4894.463mil|Location1.Y=12492.764mil|Location2.Y=12504.014mil|Absolute=True">Clearance Constraint: (0.252mm &lt; 0.254mm) Between Region (0 hole(s)) Top Layer And Region (0 hole(s)) Top Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDAJUQXB"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Minimum Solder Mask Sliver (Gap=0.01mm) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4890.976mil|Location2.X=4897.867mil|Location1.Y=12768.907mil|Location2.Y=12773.987mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4890.976mil|Location2.X=4897.867mil|Location1.Y=12768.907mil|Location2.Y=12773.987mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.002mm &lt; 0.01mm) Between Via (28.689mm,60.284mm) from Top Layer to Bottom Layer And Pad U5-80(27.419mm,59.684mm) on Top Layer [Top Solder] Mask Sliver [0.002mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6415.184mil|Location2.X=6416.827mil|Location1.Y=10959.956mil|Location2.Y=10961.6mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6415.184mil|Location2.X=6416.827mil|Location1.Y=10959.956mil|Location2.Y=10961.6mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.003mm &lt; 0.01mm) Between Via (67.167mm,14.317mm) from Top Layer to Bottom Layer And Pad R82-1(67.167mm,13.411mm) on Top Layer [Top Solder] Mask Sliver [0.003mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4134.756mil|Location2.X=4136.399mil|Location1.Y=12577.072mil|Location2.Y=12578.715mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4134.756mil|Location2.X=4136.399mil|Location1.Y=12577.072mil|Location2.Y=12578.715mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.007mm &lt; 0.01mm) Between Via (9.244mm,55.394mm) from Top Layer to Bottom Layer And Pad BS2-2(9.249mm,54.234mm) on Bottom Layer [Bottom Solder] Mask Sliver [0.007mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5668.572mil|Location2.X=5670.216mil|Location1.Y=11702.762mil|Location2.Y=11704.405mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5668.572mil|Location2.X=5670.216mil|Location1.Y=11702.762mil|Location2.Y=11704.405mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.002mm &lt; 0.01mm) Between Via (48.194mm,33.184mm) from Top Layer to Bottom Layer And Via (48.209mm,32.379mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.002mm] / [Bottom Solder] Mask Sliver [0.002mm]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDAHVQXB"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Silk To Solder Mask (Clearance=0.015mm) (IsPad),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4765.805mil|Location2.X=4767.199mil|Location1.Y=12740.386mil|Location2.Y=12741.78mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4765.805mil|Location2.X=4767.199mil|Location1.Y=12740.386mil|Location2.Y=12741.78mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.015mm) Between Arc (24.969mm,59.084mm) on Top Overlay And Pad U5-81(20.819mm,54.934mm) on Top Layer [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4118.306mil|Location2.X=4119.699mil|Location1.Y=11720.471mil|Location2.Y=11721.864mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4118.306mil|Location2.X=4119.699mil|Location1.Y=11720.471mil|Location2.Y=11721.864mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.015mm) Between Track (6.986mm,33.178mm)(10.166mm,33.178mm) on Top Overlay And Pad C6-1(8.576mm,34.318mm) on Top Layer [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4100.819mil|Location2.X=4102.212mil|Location1.Y=11946.849mil|Location2.Y=11948.243mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4100.819mil|Location2.X=4102.212mil|Location1.Y=11946.849mil|Location2.Y=11948.243mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.015mm) Between Track (5.926mm,38.928mm)(11.226mm,38.928mm) on Top Overlay And Pad C6-2(8.576mm,38.018mm) on Top Layer [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3812.117mil|Location2.X=3813.511mil|Location1.Y=11946.337mil|Location2.Y=11947.73mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3812.117mil|Location2.X=3813.511mil|Location1.Y=11946.337mil|Location2.Y=11947.73mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.015mm) Between Track (-1.407mm,38.915mm)(3.893mm,38.915mm) on Top Overlay And Pad C5-2(1.243mm,38.005mm) on Top Layer [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3829.604mil|Location2.X=3830.998mil|Location1.Y=11719.959mil|Location2.Y=11721.352mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3829.604mil|Location2.X=3830.998mil|Location1.Y=11719.959mil|Location2.Y=11721.352mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.015mm) Between Track (-0.347mm,33.165mm)(2.833mm,33.165mm) on Top Overlay And Pad C5-1(1.243mm,34.305mm) on Top Layer [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7246.309mil|Location2.X=7247.703mil|Location1.Y=12832.535mil|Location2.Y=12833.928mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7246.309mil|Location2.X=7247.703mil|Location1.Y=12832.535mil|Location2.Y=12833.928mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.015mm) Between Track (85.497mm,61.424mm)(88.697mm,61.424mm) on Bottom Overlay And Pad U7A-5(88.072mm,60.874mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7220.719mil|Location2.X=7222.112mil|Location1.Y=12832.535mil|Location2.Y=12833.928mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7220.719mil|Location2.X=7222.112mil|Location1.Y=12832.535mil|Location2.Y=12833.928mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.015mm) Between Track (85.497mm,61.424mm)(88.697mm,61.424mm) on Bottom Overlay And Pad U7A-6(87.422mm,60.874mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7195.128mil|Location2.X=7196.522mil|Location1.Y=12832.535mil|Location2.Y=12833.928mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7195.128mil|Location2.X=7196.522mil|Location1.Y=12832.535mil|Location2.Y=12833.928mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.015mm) Between Track (85.497mm,61.424mm)(88.697mm,61.424mm) on Bottom Overlay And Pad U7A-7(86.772mm,60.874mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7169.538mil|Location2.X=7170.931mil|Location1.Y=12832.535mil|Location2.Y=12833.928mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7169.538mil|Location2.X=7170.931mil|Location1.Y=12832.535mil|Location2.Y=12833.928mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.015mm) Between Track (85.497mm,61.424mm)(88.697mm,61.424mm) on Bottom Overlay And Pad U7A-8(86.122mm,60.874mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7231.147mil|Location2.X=7232.541mil|Location1.Y=12952.22mil|Location2.Y=12953.613mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7231.147mil|Location2.X=7232.541mil|Location1.Y=12952.22mil|Location2.Y=12953.613mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.015mm) Between Track (85.497mm,64.464mm)(88.697mm,64.464mm) on Bottom Overlay And Pad U7A-4(88.072mm,64.964mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7205.557mil|Location2.X=7206.95mil|Location1.Y=12952.22mil|Location2.Y=12953.613mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7205.557mil|Location2.X=7206.95mil|Location1.Y=12952.22mil|Location2.Y=12953.613mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.015mm) Between Track (85.497mm,64.464mm)(88.697mm,64.464mm) on Bottom Overlay And Pad U7A-3(87.422mm,64.964mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7179.966mil|Location2.X=7181.36mil|Location1.Y=12952.22mil|Location2.Y=12953.613mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7179.966mil|Location2.X=7181.36mil|Location1.Y=12952.22mil|Location2.Y=12953.613mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.015mm) Between Track (85.497mm,64.464mm)(88.697mm,64.464mm) on Bottom Overlay And Pad U7A-2(86.772mm,64.964mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7154.376mil|Location2.X=7155.769mil|Location1.Y=12952.22mil|Location2.Y=12953.613mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7154.376mil|Location2.X=7155.769mil|Location1.Y=12952.22mil|Location2.Y=12953.613mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.015mm) Between Track (85.497mm,64.464mm)(88.697mm,64.464mm) on Bottom Overlay And Pad U7A-1(86.122mm,64.964mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7246.309mil|Location2.X=7247.703mil|Location1.Y=13230.566mil|Location2.Y=13231.96mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7246.309mil|Location2.X=7247.703mil|Location1.Y=13230.566mil|Location2.Y=13231.96mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.015mm) Between Track (85.497mm,71.534mm)(88.697mm,71.534mm) on Bottom Overlay And Pad U7B-5(88.072mm,70.984mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7220.719mil|Location2.X=7222.112mil|Location1.Y=13230.566mil|Location2.Y=13231.96mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7220.719mil|Location2.X=7222.112mil|Location1.Y=13230.566mil|Location2.Y=13231.96mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.015mm) Between Track (85.497mm,71.534mm)(88.697mm,71.534mm) on Bottom Overlay And Pad U7B-6(87.422mm,70.984mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7195.128mil|Location2.X=7196.522mil|Location1.Y=13230.566mil|Location2.Y=13231.96mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7195.128mil|Location2.X=7196.522mil|Location1.Y=13230.566mil|Location2.Y=13231.96mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.015mm) Between Track (85.497mm,71.534mm)(88.697mm,71.534mm) on Bottom Overlay And Pad U7B-7(86.772mm,70.984mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7169.538mil|Location2.X=7170.931mil|Location1.Y=13230.566mil|Location2.Y=13231.96mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7169.538mil|Location2.X=7170.931mil|Location1.Y=13230.566mil|Location2.Y=13231.96mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.015mm) Between Track (85.497mm,71.534mm)(88.697mm,71.534mm) on Bottom Overlay And Pad U7B-8(86.122mm,70.984mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7231.147mil|Location2.X=7232.541mil|Location1.Y=13350.251mil|Location2.Y=13351.645mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7231.147mil|Location2.X=7232.541mil|Location1.Y=13350.251mil|Location2.Y=13351.645mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.015mm) Between Track (85.497mm,74.574mm)(88.697mm,74.574mm) on Bottom Overlay And Pad U7B-4(88.072mm,75.074mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7205.557mil|Location2.X=7206.95mil|Location1.Y=13350.251mil|Location2.Y=13351.645mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7205.557mil|Location2.X=7206.95mil|Location1.Y=13350.251mil|Location2.Y=13351.645mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.015mm) Between Track (85.497mm,74.574mm)(88.697mm,74.574mm) on Bottom Overlay And Pad U7B-3(87.422mm,75.074mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7179.966mil|Location2.X=7181.36mil|Location1.Y=13350.251mil|Location2.Y=13351.645mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7179.966mil|Location2.X=7181.36mil|Location1.Y=13350.251mil|Location2.Y=13351.645mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.015mm) Between Track (85.497mm,74.574mm)(88.697mm,74.574mm) on Bottom Overlay And Pad U7B-2(86.772mm,75.074mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7154.376mil|Location2.X=7155.769mil|Location1.Y=13350.251mil|Location2.Y=13351.645mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7154.376mil|Location2.X=7155.769mil|Location1.Y=13350.251mil|Location2.Y=13351.645mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.015mm) Between Track (85.497mm,74.574mm)(88.697mm,74.574mm) on Bottom Overlay And Pad U7B-1(86.122mm,75.074mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7246.309mil|Location2.X=7247.703mil|Location1.Y=14026.629mil|Location2.Y=14028.023mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7246.309mil|Location2.X=7247.703mil|Location1.Y=14026.629mil|Location2.Y=14028.023mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.015mm) Between Track (85.497mm,91.754mm)(88.697mm,91.754mm) on Bottom Overlay And Pad U7D-5(88.072mm,91.204mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7220.719mil|Location2.X=7222.112mil|Location1.Y=14026.629mil|Location2.Y=14028.023mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7220.719mil|Location2.X=7222.112mil|Location1.Y=14026.629mil|Location2.Y=14028.023mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.015mm) Between Track (85.497mm,91.754mm)(88.697mm,91.754mm) on Bottom Overlay And Pad U7D-6(87.422mm,91.204mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7195.128mil|Location2.X=7196.522mil|Location1.Y=14026.629mil|Location2.Y=14028.023mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7195.128mil|Location2.X=7196.522mil|Location1.Y=14026.629mil|Location2.Y=14028.023mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.015mm) Between Track (85.497mm,91.754mm)(88.697mm,91.754mm) on Bottom Overlay And Pad U7D-7(86.772mm,91.204mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7169.538mil|Location2.X=7170.931mil|Location1.Y=14026.629mil|Location2.Y=14028.023mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7169.538mil|Location2.X=7170.931mil|Location1.Y=14026.629mil|Location2.Y=14028.023mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.015mm) Between Track (85.497mm,91.754mm)(88.697mm,91.754mm) on Bottom Overlay And Pad U7D-8(86.122mm,91.204mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7231.147mil|Location2.X=7232.541mil|Location1.Y=14146.314mil|Location2.Y=14147.708mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7231.147mil|Location2.X=7232.541mil|Location1.Y=14146.314mil|Location2.Y=14147.708mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.015mm) Between Track (85.497mm,94.794mm)(88.697mm,94.794mm) on Bottom Overlay And Pad U7D-4(88.072mm,95.294mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7205.557mil|Location2.X=7206.95mil|Location1.Y=14146.314mil|Location2.Y=14147.708mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7205.557mil|Location2.X=7206.95mil|Location1.Y=14146.314mil|Location2.Y=14147.708mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.015mm) Between Track (85.497mm,94.794mm)(88.697mm,94.794mm) on Bottom Overlay And Pad U7D-3(87.422mm,95.294mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7179.966mil|Location2.X=7181.36mil|Location1.Y=14146.314mil|Location2.Y=14147.708mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7179.966mil|Location2.X=7181.36mil|Location1.Y=14146.314mil|Location2.Y=14147.708mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.015mm) Between Track (85.497mm,94.794mm)(88.697mm,94.794mm) on Bottom Overlay And Pad U7D-2(86.772mm,95.294mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7154.376mil|Location2.X=7155.769mil|Location1.Y=14146.314mil|Location2.Y=14147.708mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7154.376mil|Location2.X=7155.769mil|Location1.Y=14146.314mil|Location2.Y=14147.708mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.015mm) Between Track (85.497mm,94.794mm)(88.697mm,94.794mm) on Bottom Overlay And Pad U7D-1(86.122mm,95.294mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7246.309mil|Location2.X=7247.703mil|Location1.Y=10610.881mil|Location2.Y=10612.275mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7246.309mil|Location2.X=7247.703mil|Location1.Y=10610.881mil|Location2.Y=10612.275mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.015mm) Between Track (85.497mm,4.994mm)(88.697mm,4.994mm) on Bottom Overlay And Pad U7E-5(88.072mm,4.444mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7220.719mil|Location2.X=7222.112mil|Location1.Y=10610.881mil|Location2.Y=10612.275mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7220.719mil|Location2.X=7222.112mil|Location1.Y=10610.881mil|Location2.Y=10612.275mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.015mm) Between Track (85.497mm,4.994mm)(88.697mm,4.994mm) on Bottom Overlay And Pad U7E-6(87.422mm,4.444mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7195.128mil|Location2.X=7196.522mil|Location1.Y=10610.881mil|Location2.Y=10612.275mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7195.128mil|Location2.X=7196.522mil|Location1.Y=10610.881mil|Location2.Y=10612.275mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.015mm) Between Track (85.497mm,4.994mm)(88.697mm,4.994mm) on Bottom Overlay And Pad U7E-7(86.772mm,4.444mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7169.538mil|Location2.X=7170.931mil|Location1.Y=10610.881mil|Location2.Y=10612.275mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7169.538mil|Location2.X=7170.931mil|Location1.Y=10610.881mil|Location2.Y=10612.275mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.015mm) Between Track (85.497mm,4.994mm)(88.697mm,4.994mm) on Bottom Overlay And Pad U7E-8(86.122mm,4.444mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7231.147mil|Location2.X=7232.541mil|Location1.Y=10730.566mil|Location2.Y=10731.96mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7231.147mil|Location2.X=7232.541mil|Location1.Y=10730.566mil|Location2.Y=10731.96mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.015mm) Between Track (85.497mm,8.034mm)(88.697mm,8.034mm) on Bottom Overlay And Pad U7E-4(88.072mm,8.534mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7205.557mil|Location2.X=7206.95mil|Location1.Y=10730.566mil|Location2.Y=10731.96mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7205.557mil|Location2.X=7206.95mil|Location1.Y=10730.566mil|Location2.Y=10731.96mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.015mm) Between Track (85.497mm,8.034mm)(88.697mm,8.034mm) on Bottom Overlay And Pad U7E-3(87.422mm,8.534mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7179.966mil|Location2.X=7181.36mil|Location1.Y=10730.566mil|Location2.Y=10731.96mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7179.966mil|Location2.X=7181.36mil|Location1.Y=10730.566mil|Location2.Y=10731.96mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.015mm) Between Track (85.497mm,8.034mm)(88.697mm,8.034mm) on Bottom Overlay And Pad U7E-2(86.772mm,8.534mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7154.376mil|Location2.X=7155.769mil|Location1.Y=10730.566mil|Location2.Y=10731.96mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7154.376mil|Location2.X=7155.769mil|Location1.Y=10730.566mil|Location2.Y=10731.96mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.015mm) Between Track (85.497mm,8.034mm)(88.697mm,8.034mm) on Bottom Overlay And Pad U7E-1(86.122mm,8.534mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7246.309mil|Location2.X=7247.703mil|Location1.Y=11008.913mil|Location2.Y=11010.306mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7246.309mil|Location2.X=7247.703mil|Location1.Y=11008.913mil|Location2.Y=11010.306mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.015mm) Between Track (85.497mm,15.104mm)(88.697mm,15.104mm) on Bottom Overlay And Pad U7F-5(88.072mm,14.554mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7220.719mil|Location2.X=7222.112mil|Location1.Y=11008.913mil|Location2.Y=11010.306mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7220.719mil|Location2.X=7222.112mil|Location1.Y=11008.913mil|Location2.Y=11010.306mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.015mm) Between Track (85.497mm,15.104mm)(88.697mm,15.104mm) on Bottom Overlay And Pad U7F-6(87.422mm,14.554mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7195.128mil|Location2.X=7196.522mil|Location1.Y=11008.913mil|Location2.Y=11010.306mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7195.128mil|Location2.X=7196.522mil|Location1.Y=11008.913mil|Location2.Y=11010.306mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.015mm) Between Track (85.497mm,15.104mm)(88.697mm,15.104mm) on Bottom Overlay And Pad U7F-7(86.772mm,14.554mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7169.538mil|Location2.X=7170.931mil|Location1.Y=11008.913mil|Location2.Y=11010.306mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7169.538mil|Location2.X=7170.931mil|Location1.Y=11008.913mil|Location2.Y=11010.306mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.015mm) Between Track (85.497mm,15.104mm)(88.697mm,15.104mm) on Bottom Overlay And Pad U7F-8(86.122mm,14.554mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7231.147mil|Location2.X=7232.541mil|Location1.Y=11128.598mil|Location2.Y=11129.991mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7231.147mil|Location2.X=7232.541mil|Location1.Y=11128.598mil|Location2.Y=11129.991mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.015mm) Between Track (85.497mm,18.144mm)(88.697mm,18.144mm) on Bottom Overlay And Pad U7F-4(88.072mm,18.644mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7205.557mil|Location2.X=7206.95mil|Location1.Y=11128.598mil|Location2.Y=11129.991mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7205.557mil|Location2.X=7206.95mil|Location1.Y=11128.598mil|Location2.Y=11129.991mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.015mm) Between Track (85.497mm,18.144mm)(88.697mm,18.144mm) on Bottom Overlay And Pad U7F-3(87.422mm,18.644mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7179.966mil|Location2.X=7181.36mil|Location1.Y=11128.598mil|Location2.Y=11129.991mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7179.966mil|Location2.X=7181.36mil|Location1.Y=11128.598mil|Location2.Y=11129.991mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.015mm) Between Track (85.497mm,18.144mm)(88.697mm,18.144mm) on Bottom Overlay And Pad U7F-2(86.772mm,18.644mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7154.376mil|Location2.X=7155.769mil|Location1.Y=11128.598mil|Location2.Y=11129.991mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7154.376mil|Location2.X=7155.769mil|Location1.Y=11128.598mil|Location2.Y=11129.991mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.015mm) Between Track (85.497mm,18.144mm)(88.697mm,18.144mm) on Bottom Overlay And Pad U7F-1(86.122mm,18.644mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7246.309mil|Location2.X=7247.703mil|Location1.Y=11406.944mil|Location2.Y=11408.338mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7246.309mil|Location2.X=7247.703mil|Location1.Y=11406.944mil|Location2.Y=11408.338mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.015mm) Between Track (85.497mm,25.214mm)(88.697mm,25.214mm) on Bottom Overlay And Pad U7G-5(88.072mm,24.664mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7220.719mil|Location2.X=7222.112mil|Location1.Y=11406.944mil|Location2.Y=11408.338mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7220.719mil|Location2.X=7222.112mil|Location1.Y=11406.944mil|Location2.Y=11408.338mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.015mm) Between Track (85.497mm,25.214mm)(88.697mm,25.214mm) on Bottom Overlay And Pad U7G-6(87.422mm,24.664mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7195.128mil|Location2.X=7196.522mil|Location1.Y=11406.944mil|Location2.Y=11408.338mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7195.128mil|Location2.X=7196.522mil|Location1.Y=11406.944mil|Location2.Y=11408.338mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.015mm) Between Track (85.497mm,25.214mm)(88.697mm,25.214mm) on Bottom Overlay And Pad U7G-7(86.772mm,24.664mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7169.538mil|Location2.X=7170.931mil|Location1.Y=11406.944mil|Location2.Y=11408.338mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7169.538mil|Location2.X=7170.931mil|Location1.Y=11406.944mil|Location2.Y=11408.338mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.015mm) Between Track (85.497mm,25.214mm)(88.697mm,25.214mm) on Bottom Overlay And Pad U7G-8(86.122mm,24.664mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7231.147mil|Location2.X=7232.541mil|Location1.Y=11526.629mil|Location2.Y=11528.023mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7231.147mil|Location2.X=7232.541mil|Location1.Y=11526.629mil|Location2.Y=11528.023mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.015mm) Between Track (85.497mm,28.254mm)(88.697mm,28.254mm) on Bottom Overlay And Pad U7G-4(88.072mm,28.754mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7205.557mil|Location2.X=7206.95mil|Location1.Y=11526.629mil|Location2.Y=11528.023mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7205.557mil|Location2.X=7206.95mil|Location1.Y=11526.629mil|Location2.Y=11528.023mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.015mm) Between Track (85.497mm,28.254mm)(88.697mm,28.254mm) on Bottom Overlay And Pad U7G-3(87.422mm,28.754mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7179.966mil|Location2.X=7181.36mil|Location1.Y=11526.629mil|Location2.Y=11528.023mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7179.966mil|Location2.X=7181.36mil|Location1.Y=11526.629mil|Location2.Y=11528.023mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.015mm) Between Track (85.497mm,28.254mm)(88.697mm,28.254mm) on Bottom Overlay And Pad U7G-2(86.772mm,28.754mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7154.376mil|Location2.X=7155.769mil|Location1.Y=11526.629mil|Location2.Y=11528.023mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7154.376mil|Location2.X=7155.769mil|Location1.Y=11526.629mil|Location2.Y=11528.023mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.015mm) Between Track (85.497mm,28.254mm)(88.697mm,28.254mm) on Bottom Overlay And Pad U7G-1(86.122mm,28.754mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7246.309mil|Location2.X=7247.703mil|Location1.Y=11804.976mil|Location2.Y=11806.369mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7246.309mil|Location2.X=7247.703mil|Location1.Y=11804.976mil|Location2.Y=11806.369mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.015mm) Between Track (85.497mm,35.324mm)(88.697mm,35.324mm) on Bottom Overlay And Pad U7H-5(88.072mm,34.774mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7220.719mil|Location2.X=7222.112mil|Location1.Y=11804.976mil|Location2.Y=11806.369mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7220.719mil|Location2.X=7222.112mil|Location1.Y=11804.976mil|Location2.Y=11806.369mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.015mm) Between Track (85.497mm,35.324mm)(88.697mm,35.324mm) on Bottom Overlay And Pad U7H-6(87.422mm,34.774mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7195.128mil|Location2.X=7196.522mil|Location1.Y=11804.976mil|Location2.Y=11806.369mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7195.128mil|Location2.X=7196.522mil|Location1.Y=11804.976mil|Location2.Y=11806.369mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.015mm) Between Track (85.497mm,35.324mm)(88.697mm,35.324mm) on Bottom Overlay And Pad U7H-7(86.772mm,34.774mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7169.538mil|Location2.X=7170.931mil|Location1.Y=11804.976mil|Location2.Y=11806.369mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7169.538mil|Location2.X=7170.931mil|Location1.Y=11804.976mil|Location2.Y=11806.369mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.015mm) Between Track (85.497mm,35.324mm)(88.697mm,35.324mm) on Bottom Overlay And Pad U7H-8(86.122mm,34.774mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7231.147mil|Location2.X=7232.541mil|Location1.Y=11924.661mil|Location2.Y=11926.054mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7231.147mil|Location2.X=7232.541mil|Location1.Y=11924.661mil|Location2.Y=11926.054mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.015mm) Between Track (85.497mm,38.364mm)(88.697mm,38.364mm) on Bottom Overlay And Pad U7H-4(88.072mm,38.864mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7205.557mil|Location2.X=7206.95mil|Location1.Y=11924.661mil|Location2.Y=11926.054mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7205.557mil|Location2.X=7206.95mil|Location1.Y=11924.661mil|Location2.Y=11926.054mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.015mm) Between Track (85.497mm,38.364mm)(88.697mm,38.364mm) on Bottom Overlay And Pad U7H-3(87.422mm,38.864mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7179.966mil|Location2.X=7181.36mil|Location1.Y=11924.661mil|Location2.Y=11926.054mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7179.966mil|Location2.X=7181.36mil|Location1.Y=11924.661mil|Location2.Y=11926.054mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.015mm) Between Track (85.497mm,38.364mm)(88.697mm,38.364mm) on Bottom Overlay And Pad U7H-2(86.772mm,38.864mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7154.376mil|Location2.X=7155.769mil|Location1.Y=11924.661mil|Location2.Y=11926.054mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7154.376mil|Location2.X=7155.769mil|Location1.Y=11924.661mil|Location2.Y=11926.054mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.015mm) Between Track (85.497mm,38.364mm)(88.697mm,38.364mm) on Bottom Overlay And Pad U7H-1(86.122mm,38.864mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7246.309mil|Location2.X=7247.703mil|Location1.Y=13628.598mil|Location2.Y=13629.991mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7246.309mil|Location2.X=7247.703mil|Location1.Y=13628.598mil|Location2.Y=13629.991mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.015mm) Between Track (85.497mm,81.644mm)(88.697mm,81.644mm) on Bottom Overlay And Pad U7C-5(88.072mm,81.094mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7220.719mil|Location2.X=7222.112mil|Location1.Y=13628.598mil|Location2.Y=13629.991mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7220.719mil|Location2.X=7222.112mil|Location1.Y=13628.598mil|Location2.Y=13629.991mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.015mm) Between Track (85.497mm,81.644mm)(88.697mm,81.644mm) on Bottom Overlay And Pad U7C-6(87.422mm,81.094mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7195.128mil|Location2.X=7196.522mil|Location1.Y=13628.598mil|Location2.Y=13629.991mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7195.128mil|Location2.X=7196.522mil|Location1.Y=13628.598mil|Location2.Y=13629.991mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.015mm) Between Track (85.497mm,81.644mm)(88.697mm,81.644mm) on Bottom Overlay And Pad U7C-7(86.772mm,81.094mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7169.538mil|Location2.X=7170.931mil|Location1.Y=13628.598mil|Location2.Y=13629.991mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7169.538mil|Location2.X=7170.931mil|Location1.Y=13628.598mil|Location2.Y=13629.991mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.015mm) Between Track (85.497mm,81.644mm)(88.697mm,81.644mm) on Bottom Overlay And Pad U7C-8(86.122mm,81.094mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7231.147mil|Location2.X=7232.541mil|Location1.Y=13748.283mil|Location2.Y=13749.676mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7231.147mil|Location2.X=7232.541mil|Location1.Y=13748.283mil|Location2.Y=13749.676mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.015mm) Between Track (85.497mm,84.684mm)(88.697mm,84.684mm) on Bottom Overlay And Pad U7C-4(88.072mm,85.184mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7205.557mil|Location2.X=7206.95mil|Location1.Y=13748.283mil|Location2.Y=13749.676mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7205.557mil|Location2.X=7206.95mil|Location1.Y=13748.283mil|Location2.Y=13749.676mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.015mm) Between Track (85.497mm,84.684mm)(88.697mm,84.684mm) on Bottom Overlay And Pad U7C-3(87.422mm,85.184mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7179.966mil|Location2.X=7181.36mil|Location1.Y=13748.283mil|Location2.Y=13749.676mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7179.966mil|Location2.X=7181.36mil|Location1.Y=13748.283mil|Location2.Y=13749.676mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.015mm) Between Track (85.497mm,84.684mm)(88.697mm,84.684mm) on Bottom Overlay And Pad U7C-2(86.772mm,85.184mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7154.376mil|Location2.X=7155.769mil|Location1.Y=13748.283mil|Location2.Y=13749.676mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7154.376mil|Location2.X=7155.769mil|Location1.Y=13748.283mil|Location2.Y=13749.676mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.015mm) Between Track (85.497mm,84.684mm)(88.697mm,84.684mm) on Bottom Overlay And Pad U7C-1(86.122mm,85.184mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDAXKRXB"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Net Antennae (Tolerance=0mm) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8422.459mil|Location2.X=8445.876mil|Location1.Y=10688.307mil|Location2.Y=10722.224mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8422.459mil|Location2.X=8445.876mil|Location1.Y=10688.307mil|Location2.Y=10722.224mil|Absolute=True">Net Antennae: Track (118.344mm,7.157mm)(119.054mm,7.157mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8422.459mil|Location2.X=8445.876mil|Location1.Y=10707.992mil|Location2.Y=10741.908mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\ULTRA SCALE\UltraZohm_Analog Fast_ADC 1v1 3U\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8422.459mil|Location2.X=8445.876mil|Location1.Y=10707.992mil|Location2.Y=10741.908mil|Absolute=True">Net Antennae: Track (116.513mm,7.657mm)(118.344mm,7.657mm) on Top Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>

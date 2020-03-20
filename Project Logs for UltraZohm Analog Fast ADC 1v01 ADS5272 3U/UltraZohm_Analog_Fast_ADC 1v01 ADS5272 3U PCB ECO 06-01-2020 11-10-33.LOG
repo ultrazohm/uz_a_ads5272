@@ -1,0 +1,22 @@
+Added Pin To Net: NetName=AIN2A_N Pin=R44A-2
+Added Pin To Net: NetName=AIN2B_N Pin=R44B-2
+Added Pin To Net: NetName=AIN2A_N Pin=R62A-1
+Added Pin To Net: NetName=AIN2B_N Pin=R62B-1
+Change Net Name : Old Net Name=AIN1_N1 New Net Name=AIN4_P1
+Change Net Name : Old Net Name=AIN1_N2 New Net Name=AIN4_P2
+Change Net Name : Old Net Name=AIN1_P1 New Net Name=AIN4_N1
+Change Net Name : Old Net Name=AIN1_P2 New Net Name=AIN4_N2
+Change Net Name : Old Net Name=AIN2_N1 New Net Name=AIN3_P1
+Change Net Name : Old Net Name=AIN2_N2 New Net Name=AIN3_P2
+Change Net Name : Old Net Name=AIN2_P1 New Net Name=AIN3_N1
+Change Net Name : Old Net Name=AIN2_P2 New Net Name=AIN3_N2
+Change Net Name : Old Net Name=AIN3_N1 New Net Name=AIN2_P1
+Change Net Name : Old Net Name=AIN3_N2 New Net Name=AIN2_P2
+Change Net Name : Old Net Name=AIN4_N1 New Net Name=AIN1_P1
+Change Net Name : Old Net Name=AIN4_N2 New Net Name=AIN1_P2
+Change Net Name : Old Net Name=AIN4_P1 New Net Name=AIN1_N1
+Change Net Name : Old Net Name=AIN4_P2 New Net Name=AIN1_N2
+Added Pin To Net: NetName=AIN2_N1 Pin=J1-13
+Added Net: Name=AIN2_N1
+Added Pin To Net: NetName=AIN2_N2 Pin=J1-5
+Added Net: Name=AIN2_N2
