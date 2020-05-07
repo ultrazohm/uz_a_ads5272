@@ -1,5 +1,8 @@
 History/
 __Previews/
-.SchDocPrewview
-.htm
-.LOG
+*.SchDocPrewview
+*.htm
+*.LOG
+*.drc
+*.html
+*.txt
