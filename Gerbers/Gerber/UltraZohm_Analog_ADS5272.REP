@@ -2,6 +2,93 @@
 FileName = UltraZohm_Analog_ADS5272.GBR
 AutoAperture = True
 *************************************************************
+Generating : Top Overlay
+      File : UltraZohm_Analog_ADS5272.GTO
+
+    Adding Layer      : Top Overlay
+
+
+Used DCodes :
+    D10
+    D11
+    D12
+    D13
+    D14
+    D15
+    D16
+    D17
+    D18
+    D19
+    D20
+    D21
+    D22
+    D23
+*************************************************************
+
+*************************************************************
+Generating : Bottom Layer
+      File : UltraZohm_Analog_ADS5272.GBL
+
+    Adding Layer      : Bottom Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D17
+    D19
+    D25
+    D29
+    D30
+    D32
+    D37
+    D46
+    D47
+    D99
+    D100
+    D101
+    D103
+    D104
+    D105
+    D106
+    D107
+    D108
+    D109
+    D110
+    D111
+    D112
+    D113
+    D114
+    D115
+    D116
+    D117
+    D118
+    D119
+    D120
+    D121
+    D122
+    D123
+    D124
+    D125
+    D126
+    D127
+    D128
+    D129
+*************************************************************
+
+*************************************************************
+Generating : Mechanical 1
+      File : UltraZohm_Analog_ADS5272.GM1
+
+    Adding Layer      : Mechanical 1
+
+
+Used DCodes :
+    D11
+    D19
+*************************************************************
+
+*************************************************************
 Generating : Mechanical 16
       File : UltraZohm_Analog_ADS5272.GM16
 
@@ -9,7 +96,7 @@ Generating : Mechanical 16
 
 
 Used DCodes :
-    D141
+    D144
 *************************************************************
 
 *************************************************************
@@ -55,92 +142,9 @@ Used DCodes :
     D52
     D53
     D54
-    D97
-    D98
+    D55
     D99
     D100
-    D101
-    D102
-    D103
-    D104
-    D105
-    D106
-    D107
-    D108
-    D109
-    D110
-    D111
-    D112
-    D113
-    D114
-    D115
-    D116
-    D117
-*************************************************************
-
-*************************************************************
-Generating : Mechanical 3
-      File : UltraZohm_Analog_ADS5272.GM3
-
-    Adding Layer      : Mechanical 3
-
-
-Used DCodes :
-    D11
-*************************************************************
-
-*************************************************************
-Generating : Dielectric 2
-      File : UltraZohm_Analog_ADS5272.3
-
-    Adding Layer      : Dielectric 2
-
-
-Used DCodes :
-*************************************************************
-
-*************************************************************
-Generating : AGND
-      File : UltraZohm_Analog_ADS5272.G1
-
-    Adding Layer      : AGND
-
-    Adding Layer      : Multi-Layer
-
-
-Used DCodes :
-    D19
-    D100
-    D101
-    D105
-    D109
-    D113
-    D114
-    D115
-*************************************************************
-
-*************************************************************
-Generating : Bottom Layer
-      File : UltraZohm_Analog_ADS5272.GBL
-
-    Adding Layer      : Bottom Layer
-
-    Adding Layer      : Multi-Layer
-
-
-Used DCodes :
-    D17
-    D19
-    D24
-    D28
-    D29
-    D31
-    D36
-    D45
-    D46
-    D97
-    D98
-    D99
     D101
     D102
     D103
@@ -160,68 +164,16 @@ Used DCodes :
     D117
     D118
     D119
-    D120
-    D121
-    D122
-    D123
-    D124
-    D125
-    D126
-    D127
 *************************************************************
 
 *************************************************************
-Generating : Multi-Layer
-      File : UltraZohm_Analog_ADS5272.GML
+Generating : Dielectric 4
+      File : UltraZohm_Analog_ADS5272.5
 
-    Adding Layer      : Multi-Layer
+    Adding Layer      : Dielectric 4
 
 
 Used DCodes :
-    D101
-    D102
-    D103
-    D104
-    D105
-    D106
-    D107
-    D108
-    D109
-    D110
-    D111
-    D112
-    D113
-*************************************************************
-
-*************************************************************
-Generating : Signal 1
-      File : UltraZohm_Analog_ADS5272.G4
-
-    Adding Layer      : Signal 1
-
-    Adding Layer      : Multi-Layer
-
-
-Used DCodes :
-    D19
-    D97
-    D101
-    D105
-    D114
-    D115
-    D116
-*************************************************************
-
-*************************************************************
-Generating : Mechanical 1
-      File : UltraZohm_Analog_ADS5272.GM1
-
-    Adding Layer      : Mechanical 1
-
-
-Used DCodes :
-    D11
-    D19
 *************************************************************
 
 *************************************************************
@@ -265,8 +217,7 @@ Used DCodes :
     D52
     D53
     D54
-    D101
-    D102
+    D55
     D103
     D104
     D105
@@ -278,6 +229,8 @@ Used DCodes :
     D111
     D112
     D113
+    D114
+    D115
 *************************************************************
 
 *************************************************************
@@ -290,15 +243,13 @@ Generating : Bottom Pad Master
 
 
 Used DCodes :
-    D24
-    D28
+    D25
     D29
-    D31
-    D36
-    D45
+    D30
+    D32
+    D37
     D46
-    D101
-    D102
+    D47
     D103
     D104
     D105
@@ -310,63 +261,30 @@ Used DCodes :
     D111
     D112
     D113
-    D118
-    D119
+    D114
+    D115
     D120
     D121
     D122
     D123
     D124
     D125
+    D126
+    D127
 *************************************************************
 
 *************************************************************
-Generating : Dielectric 5
-      File : UltraZohm_Analog_ADS5272.4
+Generating : Mechanical 15
+      File : UltraZohm_Analog_ADS5272.GM15
 
-    Adding Layer      : Dielectric 5
+    Adding Layer      : Mechanical 15
 
 
 Used DCodes :
-*************************************************************
-
-*************************************************************
-Generating : Mechanical 11
-      File : UltraZohm_Analog_ADS5272.GM11
-
-    Adding Layer      : Mechanical 11
-
-
-Used DCodes :
-*************************************************************
-
-*************************************************************
-Generating : GND
-      File : UltraZohm_Analog_ADS5272.G3
-
-    Adding Layer      : GND
-
-    Adding Layer      : Multi-Layer
-
-
-Used DCodes :
-    D19
-    D98
-    D101
-    D102
-    D113
-    D114
-    D115
-*************************************************************
-
-*************************************************************
-Generating : Dielectric 4
-      File : UltraZohm_Analog_ADS5272.5
-
-    Adding Layer      : Dielectric 4
-
-
-Used DCodes :
+    D13
+    D16
+    D142
+    D143
 *************************************************************
 
 *************************************************************
@@ -381,70 +299,93 @@ Used DCodes :
 *************************************************************
 
 *************************************************************
-Generating : VCC
-      File : UltraZohm_Analog_ADS5272.G2
+Generating : Signal 1
+      File : UltraZohm_Analog_ADS5272.G4
 
-    Adding Layer      : VCC
+    Adding Layer      : Signal 1
 
     Adding Layer      : Multi-Layer
 
 
 Used DCodes :
-    D100
-    D101
-    D109
-    D113
-    D114
-    D115
-*************************************************************
-
-*************************************************************
-Generating : Top Overlay
-      File : UltraZohm_Analog_ADS5272.GTO
-
-    Adding Layer      : Top Overlay
-
-
-Used DCodes :
-    D10
-    D11
-    D12
-    D13
-    D14
-    D15
-    D16
-    D17
-    D18
     D19
-    D20
-    D21
-    D22
-    D23
+    D100
+    D103
+    D107
+    D116
+    D117
+    D118
 *************************************************************
 
 *************************************************************
-Generating : Mechanical 15
-      File : UltraZohm_Analog_ADS5272.GM15
+Generating : GND
+      File : UltraZohm_Analog_ADS5272.G3
 
-    Adding Layer      : Mechanical 15
+    Adding Layer      : GND
+
+    Adding Layer      : Multi-Layer
 
 
 Used DCodes :
-    D13
-    D16
-    D139
+    D19
+    D99
+    D103
+    D104
+    D115
+    D116
+    D117
+*************************************************************
+
+*************************************************************
+Generating : Dielectric 5
+      File : UltraZohm_Analog_ADS5272.4
+
+    Adding Layer      : Dielectric 5
+
+
+Used DCodes :
+*************************************************************
+
+*************************************************************
+Generating : Dielectric 2
+      File : UltraZohm_Analog_ADS5272.3
+
+    Adding Layer      : Dielectric 2
+
+
+Used DCodes :
+*************************************************************
+
+*************************************************************
+Generating : Mechanical 3
+      File : UltraZohm_Analog_ADS5272.GM3
+
+    Adding Layer      : Mechanical 3
+
+
+Used DCodes :
+    D11
     D140
 *************************************************************
 
 *************************************************************
-Generating : Keep-Out Layer
-      File : UltraZohm_Analog_ADS5272.GKO
+Generating : AGND
+      File : UltraZohm_Analog_ADS5272.G1
 
-    Adding Layer      : Keep-Out Layer
+    Adding Layer      : AGND
+
+    Adding Layer      : Multi-Layer
 
 
 Used DCodes :
     D19
+    D102
+    D103
+    D107
+    D111
+    D115
+    D116
+    D117
 *************************************************************
 
 *************************************************************
@@ -461,74 +402,7 @@ Used DCodes :
     D14
     D15
     D19
-    D137
-*************************************************************
-
-*************************************************************
-Generating : Mechanical 5
-      File : UltraZohm_Analog_ADS5272.GM5
-
-    Adding Layer      : Mechanical 5
-
-
-Used DCodes :
-    D13
-    D19
-    D20
-    D137
-    D138
-*************************************************************
-
-*************************************************************
-Generating : Bottom Solder
-      File : UltraZohm_Analog_ADS5272.GBS
-
-    Adding Layer      : Bottom Solder
-
-    Adding Layer      : Bottom Layer
-
-    Adding Layer      : Multi-Layer
-
-
-Used DCodes :
-    D55
-    D59
-    D60
-    D62
-    D67
-    D74
-    D75
-    D84
-    D85
-    D86
-    D87
-    D88
-    D89
-    D90
-    D91
-    D92
-    D93
-    D94
-    D95
-    D96
-    D128
-    D129
-    D130
-    D131
-    D132
-    D133
-    D134
-    D135
-*************************************************************
-
-*************************************************************
-Generating : Dielectric 1
-      File : UltraZohm_Analog_ADS5272.1
-
-    Adding Layer      : Dielectric 1
-
-
-Used DCodes :
+    D139
 *************************************************************
 
 *************************************************************
@@ -543,28 +417,28 @@ Generating : Bottom Paste
 
 
 Used DCodes :
-    D24
-    D28
+    D25
     D29
-    D31
-    D36
-    D45
+    D30
+    D32
+    D37
     D46
-    D118
+    D47
     D120
-    D121
     D122
     D123
     D124
     D125
-    D136
+    D126
+    D127
+    D138
 *************************************************************
 
 *************************************************************
-Generating : Mechanical 14
-      File : UltraZohm_Analog_ADS5272.GM14
+Generating : Dielectric 1
+      File : UltraZohm_Analog_ADS5272.1
 
-    Adding Layer      : Mechanical 14
+    Adding Layer      : Dielectric 1
 
 
 Used DCodes :
@@ -613,16 +487,30 @@ Used DCodes :
     D52
     D53
     D54
+    D55
 *************************************************************
 
 *************************************************************
-Generating : Dielectric 3
-      File : UltraZohm_Analog_ADS5272.2
+Generating : Multi-Layer
+      File : UltraZohm_Analog_ADS5272.GML
 
-    Adding Layer      : Dielectric 3
+    Adding Layer      : Multi-Layer
 
 
 Used DCodes :
+    D103
+    D104
+    D105
+    D106
+    D107
+    D108
+    D109
+    D110
+    D111
+    D112
+    D113
+    D114
+    D115
 *************************************************************
 
 *************************************************************
@@ -637,7 +525,6 @@ Generating : Top Solder
 
 
 Used DCodes :
-    D55
     D56
     D57
     D58
@@ -679,5 +566,123 @@ Used DCodes :
     D94
     D95
     D96
+    D97
+    D98
+*************************************************************
+
+*************************************************************
+Generating : Dielectric 3
+      File : UltraZohm_Analog_ADS5272.2
+
+    Adding Layer      : Dielectric 3
+
+
+Used DCodes :
+*************************************************************
+
+*************************************************************
+Generating : Mechanical 11
+      File : UltraZohm_Analog_ADS5272.GM11
+
+    Adding Layer      : Mechanical 11
+
+
+Used DCodes :
+*************************************************************
+
+*************************************************************
+Generating : Bottom Solder
+      File : UltraZohm_Analog_ADS5272.GBS
+
+    Adding Layer      : Bottom Solder
+
+    Adding Layer      : Bottom Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D57
+    D61
+    D62
+    D64
+    D69
+    D76
+    D77
+    D86
+    D87
+    D88
+    D89
+    D90
+    D91
+    D92
+    D93
+    D94
+    D95
+    D96
+    D97
+    D98
+    D130
+    D131
+    D132
+    D133
+    D134
+    D135
+    D136
+    D137
+*************************************************************
+
+*************************************************************
+Generating : Mechanical 5
+      File : UltraZohm_Analog_ADS5272.GM5
+
+    Adding Layer      : Mechanical 5
+
+
+Used DCodes :
+    D11
+    D13
+    D19
+    D20
+    D139
+    D141
+*************************************************************
+
+*************************************************************
+Generating : Keep-Out Layer
+      File : UltraZohm_Analog_ADS5272.GKO
+
+    Adding Layer      : Keep-Out Layer
+
+
+Used DCodes :
+    D19
+*************************************************************
+
+*************************************************************
+Generating : VCC
+      File : UltraZohm_Analog_ADS5272.G2
+
+    Adding Layer      : VCC
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D102
+    D111
+    D115
+    D116
+    D117
+*************************************************************
+
+*************************************************************
+Generating : Mechanical 14
+      File : UltraZohm_Analog_ADS5272.GM14
+
+    Adding Layer      : Mechanical 14
+
+
+Used DCodes :
 *************************************************************
 

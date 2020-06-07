@@ -1,5 +1,5 @@
 ----------------------------------------------------------------------------------------------------------------------------------
-NCDrill File Report For: UltraZohm_Analog_ADS5272.PcbDoc   06.06.2020  15:00:34
+NCDrill File Report For: UltraZohm_Analog_ADS5272.PcbDoc   07.06.2020  19:53:44
 ----------------------------------------------------------------------------------------------------------------------------------
 
 Layer Pair : Top Layer to Bottom Layer
@@ -15,9 +15,9 @@ T5      0.8mm (31mil)                                             Round         
 T6      0.9mm (35mil)                                             Round             16        PTH        0.00mm (0.00inch)
 T7      1mm (39mil)                                               Round             10        PTH        0.00mm (0.00inch)
 T8      1.016mm (40mil)                                           Round             4         PTH        0.00mm (0.00inch)
-T9      1.6mm (63mil)                                             Round             17        PTH        0.00mm (0.00inch)
+T9      1.6mm (63mil)                                             Round             13        PTH        0.00mm (0.00inch)
 T10     3.25mm (128mil)                                           Round             2         NPTH       0.00mm (0.00inch)
 ----------------------------------------------------------------------------------------------------------------------------------
-Totals                                                                              650
+Totals                                                                              646
 
 Total Processing Time (hh:mm:ss) : 00:00:00
