@@ -28,7 +28,7 @@ DItemRevisionGUID=
 ReportSuppressedErrorsInMessages=0
 FSMCodingStyle=eFMSDropDownList_OneProcess
 FSMEncodingStyle=eFMSDropDownList_OneHot
-OutputPath=
+OutputPath=Project Outputs for UltraZohm_Analog_ADS5272
 LogFolderPath=
 ManagedProjectGUID=
 IncludeDesignInRelease=0
@@ -208,23 +208,6 @@ GenerateClassCluster=0
 DocumentUniqueId=YHCEWKGP
 
 [Document11]
-DocumentPath=Output.OutJob
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=
-
-[Document12]
 DocumentPath=Altium Library\Componentes_SOC.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -240,6 +223,23 @@ ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=OCYCUIWL
+
+[Document12]
+DocumentPath=UltraZohm_Analog_ADS5272.PcbDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=IAXAYHHF
 
 [Document13]
 DocumentPath=Altium Library\Footprints_SOC.PcbLib
@@ -259,7 +259,7 @@ GenerateClassCluster=0
 DocumentUniqueId=PWDGDKBY
 
 [Document14]
-DocumentPath=UltraZohm_Analog_ADS5272.PcbDoc
+DocumentPath=OutputJob.OutJob
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -273,281 +273,415 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=IAXAYHHF
+DocumentUniqueId=
+
+[ProjectVariant1]
+UniqueID=19E6BDC2-7148-419A-87A1-C6B392C5D6EE
+Description=No Variation
+AllowFabrication=0
+ParameterCount=0
+VariationCount=42
+Variation1=Designator=DebugA|UniqueId=\1GCQEEMVP\MRQHJPQA|Kind=1|AlternatePart= 
+Variation2=Designator=DebugD|UniqueId=\4GCQEEMVP\MRQHJPQA|Kind=1|AlternatePart= 
+Variation3=Designator=DebugH|UniqueId=\8CNMLVOZI\MRQHJPQA|Kind=1|AlternatePart= 
+Variation4=Designator=DebugG|UniqueId=\7CNMLVOZI\MRQHJPQA|Kind=1|AlternatePart= 
+Variation5=Designator=DebugE|UniqueId=\5CNMLVOZI\MRQHJPQA|Kind=1|AlternatePart= 
+Variation6=Designator=DebugF|UniqueId=\6CNMLVOZI\MRQHJPQA|Kind=1|AlternatePart= 
+Variation7=Designator=DebugC|UniqueId=\3GCQEEMVP\MRQHJPQA|Kind=1|AlternatePart= 
+Variation8=Designator=DebugB|UniqueId=\2GCQEEMVP\MRQHJPQA|Kind=1|AlternatePart= 
+Variation9=Designator=R13|UniqueId=\UIYFAQGC\EVFDEGRI|Kind=1|AlternatePart= 
+Variation10=Designator=R15|UniqueId=\UIYFAQGC\FIVJMNDN|Kind=1|AlternatePart= 
+Variation11=Designator=TP1|UniqueId=\HIKQUFMN\GMHAVTET|Kind=1|AlternatePart= 
+Variation12=Designator=TP30|UniqueId=\CEJWSPPP\WOBTKBRK|Kind=1|AlternatePart= 
+Variation13=Designator=TP29|UniqueId=\CEJWSPPP\VIWXRREQ|Kind=1|AlternatePart= 
+Variation14=Designator=TP28|UniqueId=\CEJWSPPP\WGLRTWHP|Kind=1|AlternatePart= 
+Variation15=Designator=TP25|UniqueId=\CEJWSPPP\MMKKHDUC|Kind=1|AlternatePart= 
+Variation16=Designator=TP21|UniqueId=\CEJWSPPP\WDCNRTEQ|Kind=1|AlternatePart= 
+Variation17=Designator=TP22|UniqueId=\CEJWSPPP\BJJWIICV|Kind=1|AlternatePart= 
+Variation18=Designator=TP23|UniqueId=\CEJWSPPP\SQQYOZKI|Kind=1|AlternatePart= 
+Variation19=Designator=TP27|UniqueId=\CEJWSPPP\IOERTIRD|Kind=1|AlternatePart= 
+Variation20=Designator=TP24|UniqueId=\CEJWSPPP\TAUWCMLE|Kind=1|AlternatePart= 
+Variation21=Designator=TP26|UniqueId=\CEJWSPPP\MJPKGGXG|Kind=1|AlternatePart= 
+Variation22=Designator=TP31|UniqueId=\CEJWSPPP\HWLJYVIA|Kind=1|AlternatePart= 
+Variation23=Designator=TP15|UniqueId=\MDEEMUKV|Kind=1|AlternatePart= 
+Variation24=Designator=TP20|UniqueId=\CEJWSPPP\JAHBBLMO|Kind=1|AlternatePart= 
+Variation25=Designator=TP19|UniqueId=\CEJWSPPP\XSVMHKBF|Kind=1|AlternatePart= 
+Variation26=Designator=TP17|UniqueId=\CEJWSPPP\CEMZDTYD|Kind=1|AlternatePart= 
+Variation27=Designator=TP18|UniqueId=\CEJWSPPP\KJGMEXYZ|Kind=1|AlternatePart= 
+Variation28=Designator=TP8|UniqueId=\OGSWMEFB|Kind=1|AlternatePart= 
+Variation29=Designator=TP14|UniqueId=\ZINGRUHS|Kind=1|AlternatePart= 
+Variation30=Designator=TP2|UniqueId=\HIKQUFMN\NGLPGKGI|Kind=1|AlternatePart= 
+Variation31=Designator=TP16|UniqueId=\CEJWSPPP\ARIOAUCL|Kind=1|AlternatePart= 
+Variation32=Designator=TP7|UniqueId=\DEBJVUQQ|Kind=1|AlternatePart= 
+Variation33=Designator=TP9|UniqueId=\XYHGJYEF|Kind=1|AlternatePart= 
+Variation34=Designator=TP12|UniqueId=\MRLNLNGJ|Kind=1|AlternatePart= 
+Variation35=Designator=TP11|UniqueId=\VTOGFQGA|Kind=1|AlternatePart= 
+Variation36=Designator=TP10|UniqueId=\DZKWWPCU|Kind=1|AlternatePart= 
+Variation37=Designator=TP5|UniqueId=\OBSMIHDR\OTTDKUWB|Kind=1|AlternatePart= 
+Variation38=Designator=TP4|UniqueId=\HIKQUFMN\UTQPHQZQ|Kind=1|AlternatePart= 
+Variation39=Designator=TP6|UniqueId=\XYUWCZUH|Kind=1|AlternatePart= 
+Variation40=Designator=TP13|UniqueId=\LESGNRWG|Kind=1|AlternatePart= 
+Variation41=Designator=TP3|UniqueId=\HIKQUFMN\YBZUMDGZ|Kind=1|AlternatePart= 
+Variation42=Designator=X3|UniqueId=\HIKQUFMN\OGIBOZKQ|Kind=1|AlternatePart= 
+ParamVariationCount=0
 
 [GeneratedDocument1]
-DocumentPath=Gerbers\Gerber\UltraZohm_Analog_ADS5272.1
+DocumentPath=Project Outputs for UltraZohm_Analog_ADS5272\BOM\BOM_UltraZohm_Analog_ADS5272_1v01.xlsx
 DItemRevisionGUID=
 
 [GeneratedDocument2]
-DocumentPath=Gerbers\Gerber\UltraZohm_Analog_ADS5272.2
+DocumentPath=Project Outputs for UltraZohm_Analog_ADS5272\Pick Place\PickPlace_UltraZohm_Analog_ADS5272_1v01.txt
 DItemRevisionGUID=
 
 [GeneratedDocument3]
-DocumentPath=Gerbers\Gerber\UltraZohm_Analog_ADS5272.3
+DocumentPath=Gerbers\Gerber\UltraZohm_Analog_ADS5272.1
 DItemRevisionGUID=
 
 [GeneratedDocument4]
-DocumentPath=Gerbers\Gerber\UltraZohm_Analog_ADS5272.4
+DocumentPath=Gerbers\Gerber\UltraZohm_Analog_ADS5272.2
 DItemRevisionGUID=
 
 [GeneratedDocument5]
-DocumentPath=Gerbers\Gerber\UltraZohm_Analog_ADS5272.5
+DocumentPath=Gerbers\Gerber\UltraZohm_Analog_ADS5272.3
 DItemRevisionGUID=
 
 [GeneratedDocument6]
-DocumentPath=Gerbers\NC Drill\UltraZohm_Analog_ADS5272.DRR
+DocumentPath=Gerbers\Gerber\UltraZohm_Analog_ADS5272.4
 DItemRevisionGUID=
 
 [GeneratedDocument7]
-DocumentPath=Gerbers\Gerber\UltraZohm_Analog_ADS5272.EXTREP
+DocumentPath=Gerbers\Gerber\UltraZohm_Analog_ADS5272.5
 DItemRevisionGUID=
 
 [GeneratedDocument8]
-DocumentPath=Gerbers\Gerber\UltraZohm_Analog_ADS5272.G1
+DocumentPath=Gerbers\NC Drill\UltraZohm_Analog_ADS5272.DRR
 DItemRevisionGUID=
 
 [GeneratedDocument9]
-DocumentPath=Gerbers\Gerber\UltraZohm_Analog_ADS5272.G2
+DocumentPath=Project Outputs for UltraZohm_Analog_ADS5272\NC Drill\UltraZohm_Analog_ADS5272.DRR
 DItemRevisionGUID=
 
 [GeneratedDocument10]
-DocumentPath=Gerbers\Gerber\UltraZohm_Analog_ADS5272.G3
+DocumentPath=Gerbers\Gerber\UltraZohm_Analog_ADS5272.EXTREP
 DItemRevisionGUID=
 
 [GeneratedDocument11]
-DocumentPath=Gerbers\Gerber\UltraZohm_Analog_ADS5272.G4
+DocumentPath=Project Outputs for UltraZohm_Analog_ADS5272\Gerber\UltraZohm_Analog_ADS5272.EXTREP
 DItemRevisionGUID=
 
 [GeneratedDocument12]
-DocumentPath=Gerbers\Gerber\UltraZohm_Analog_ADS5272.GBL
+DocumentPath=Gerbers\Gerber\UltraZohm_Analog_ADS5272.G1
 DItemRevisionGUID=
 
 [GeneratedDocument13]
-DocumentPath=Gerbers\Gerber\UltraZohm_Analog_ADS5272.GBO
+DocumentPath=Project Outputs for UltraZohm_Analog_ADS5272\Gerber\UltraZohm_Analog_ADS5272.G1
 DItemRevisionGUID=
 
 [GeneratedDocument14]
-DocumentPath=Gerbers\Gerber\UltraZohm_Analog_ADS5272.GBP
+DocumentPath=Gerbers\Gerber\UltraZohm_Analog_ADS5272.G2
 DItemRevisionGUID=
 
 [GeneratedDocument15]
-DocumentPath=Gerbers\Gerber\UltraZohm_Analog_ADS5272.GBS
+DocumentPath=Project Outputs for UltraZohm_Analog_ADS5272\Gerber\UltraZohm_Analog_ADS5272.G2
 DItemRevisionGUID=
 
 [GeneratedDocument16]
-DocumentPath=Gerbers\Gerber\UltraZohm_Analog_ADS5272.GKO
+DocumentPath=Gerbers\Gerber\UltraZohm_Analog_ADS5272.G3
 DItemRevisionGUID=
 
 [GeneratedDocument17]
-DocumentPath=Gerbers\Gerber\UltraZohm_Analog_ADS5272.GM1
+DocumentPath=Project Outputs for UltraZohm_Analog_ADS5272\Gerber\UltraZohm_Analog_ADS5272.G3
 DItemRevisionGUID=
 
 [GeneratedDocument18]
-DocumentPath=Gerbers\Gerber\UltraZohm_Analog_ADS5272.GM3
+DocumentPath=Gerbers\Gerber\UltraZohm_Analog_ADS5272.G4
 DItemRevisionGUID=
 
 [GeneratedDocument19]
-DocumentPath=Gerbers\Gerber\UltraZohm_Analog_ADS5272.GM5
+DocumentPath=Project Outputs for UltraZohm_Analog_ADS5272\Gerber\UltraZohm_Analog_ADS5272.G4
 DItemRevisionGUID=
 
 [GeneratedDocument20]
-DocumentPath=Gerbers\Gerber\UltraZohm_Analog_ADS5272.GM11
+DocumentPath=Gerbers\Gerber\UltraZohm_Analog_ADS5272.GBL
 DItemRevisionGUID=
 
 [GeneratedDocument21]
-DocumentPath=Gerbers\Gerber\UltraZohm_Analog_ADS5272.GM13
+DocumentPath=Project Outputs for UltraZohm_Analog_ADS5272\Gerber\UltraZohm_Analog_ADS5272.GBL
 DItemRevisionGUID=
 
 [GeneratedDocument22]
-DocumentPath=Gerbers\Gerber\UltraZohm_Analog_ADS5272.GM14
+DocumentPath=Gerbers\Gerber\UltraZohm_Analog_ADS5272.GBO
 DItemRevisionGUID=
 
 [GeneratedDocument23]
-DocumentPath=Gerbers\Gerber\UltraZohm_Analog_ADS5272.GM15
+DocumentPath=Project Outputs for UltraZohm_Analog_ADS5272\Gerber\UltraZohm_Analog_ADS5272.GBO
 DItemRevisionGUID=
 
 [GeneratedDocument24]
-DocumentPath=Gerbers\Gerber\UltraZohm_Analog_ADS5272.GM16
+DocumentPath=Gerbers\Gerber\UltraZohm_Analog_ADS5272.GBP
 DItemRevisionGUID=
 
 [GeneratedDocument25]
-DocumentPath=Gerbers\Gerber\UltraZohm_Analog_ADS5272.GML
+DocumentPath=Project Outputs for UltraZohm_Analog_ADS5272\Gerber\UltraZohm_Analog_ADS5272.GBP
 DItemRevisionGUID=
 
 [GeneratedDocument26]
-DocumentPath=Gerbers\Gerber\UltraZohm_Analog_ADS5272.GPB
+DocumentPath=Gerbers\Gerber\UltraZohm_Analog_ADS5272.GBS
 DItemRevisionGUID=
 
 [GeneratedDocument27]
-DocumentPath=Gerbers\Gerber\UltraZohm_Analog_ADS5272.GPT
+DocumentPath=Project Outputs for UltraZohm_Analog_ADS5272\Gerber\UltraZohm_Analog_ADS5272.GBS
 DItemRevisionGUID=
 
 [GeneratedDocument28]
-DocumentPath=Gerbers\Gerber\UltraZohm_Analog_ADS5272.GTL
+DocumentPath=Gerbers\Gerber\UltraZohm_Analog_ADS5272.GKO
 DItemRevisionGUID=
 
 [GeneratedDocument29]
-DocumentPath=Gerbers\Gerber\UltraZohm_Analog_ADS5272.GTO
+DocumentPath=Gerbers\Gerber\UltraZohm_Analog_ADS5272.GM1
 DItemRevisionGUID=
 
 [GeneratedDocument30]
-DocumentPath=Gerbers\Gerber\UltraZohm_Analog_ADS5272.GTP
+DocumentPath=Project Outputs for UltraZohm_Analog_ADS5272\Gerber\UltraZohm_Analog_ADS5272.GM1
 DItemRevisionGUID=
 
 [GeneratedDocument31]
-DocumentPath=Gerbers\Gerber\UltraZohm_Analog_ADS5272.GTS
+DocumentPath=Gerbers\Gerber\UltraZohm_Analog_ADS5272.GM3
 DItemRevisionGUID=
 
 [GeneratedDocument32]
-DocumentPath=Gerbers\NC Drill\UltraZohm_Analog_ADS5272.LDP
+DocumentPath=Gerbers\Gerber\UltraZohm_Analog_ADS5272.GM5
 DItemRevisionGUID=
 
 [GeneratedDocument33]
-DocumentPath=Gerbers\Gerber\UltraZohm_Analog_ADS5272.REP
+DocumentPath=Gerbers\Gerber\UltraZohm_Analog_ADS5272.GM11
 DItemRevisionGUID=
 
 [GeneratedDocument34]
-DocumentPath=Gerbers\Gerber\UltraZohm_Analog_ADS5272.RUL
+DocumentPath=Gerbers\Gerber\UltraZohm_Analog_ADS5272.GM13
 DItemRevisionGUID=
 
 [GeneratedDocument35]
-DocumentPath=Gerbers\NC Drill\UltraZohm_Analog_ADS5272.TXT
+DocumentPath=Gerbers\Gerber\UltraZohm_Analog_ADS5272.GM14
 DItemRevisionGUID=
 
 [GeneratedDocument36]
-DocumentPath=Gerbers\Gerber\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.1
+DocumentPath=Gerbers\Gerber\UltraZohm_Analog_ADS5272.GM15
 DItemRevisionGUID=
 
 [GeneratedDocument37]
-DocumentPath=Gerbers\Gerber\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.2
+DocumentPath=Gerbers\Gerber\UltraZohm_Analog_ADS5272.GM16
 DItemRevisionGUID=
 
 [GeneratedDocument38]
-DocumentPath=Gerbers\Gerber\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.3
+DocumentPath=Gerbers\Gerber\UltraZohm_Analog_ADS5272.GML
 DItemRevisionGUID=
 
 [GeneratedDocument39]
-DocumentPath=Gerbers\Gerber\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.4
+DocumentPath=Gerbers\Gerber\UltraZohm_Analog_ADS5272.GPB
 DItemRevisionGUID=
 
 [GeneratedDocument40]
-DocumentPath=Gerbers\Gerber\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.5
+DocumentPath=Gerbers\Gerber\UltraZohm_Analog_ADS5272.GPT
 DItemRevisionGUID=
 
 [GeneratedDocument41]
-DocumentPath=Gerbers\NC Drill\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.DRR
+DocumentPath=Gerbers\Gerber\UltraZohm_Analog_ADS5272.GTL
 DItemRevisionGUID=
 
 [GeneratedDocument42]
-DocumentPath=Gerbers\Gerber\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.EXTREP
+DocumentPath=Project Outputs for UltraZohm_Analog_ADS5272\Gerber\UltraZohm_Analog_ADS5272.GTL
 DItemRevisionGUID=
 
 [GeneratedDocument43]
-DocumentPath=Gerbers\Gerber\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.G1
+DocumentPath=Gerbers\Gerber\UltraZohm_Analog_ADS5272.GTO
 DItemRevisionGUID=
 
 [GeneratedDocument44]
-DocumentPath=Gerbers\Gerber\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.G2
+DocumentPath=Project Outputs for UltraZohm_Analog_ADS5272\Gerber\UltraZohm_Analog_ADS5272.GTO
 DItemRevisionGUID=
 
 [GeneratedDocument45]
-DocumentPath=Gerbers\Gerber\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.G3
+DocumentPath=Gerbers\Gerber\UltraZohm_Analog_ADS5272.GTP
 DItemRevisionGUID=
 
 [GeneratedDocument46]
-DocumentPath=Gerbers\Gerber\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.G4
+DocumentPath=Project Outputs for UltraZohm_Analog_ADS5272\Gerber\UltraZohm_Analog_ADS5272.GTP
 DItemRevisionGUID=
 
 [GeneratedDocument47]
-DocumentPath=Gerbers\Gerber\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.GBL
+DocumentPath=Gerbers\Gerber\UltraZohm_Analog_ADS5272.GTS
 DItemRevisionGUID=
 
 [GeneratedDocument48]
-DocumentPath=Gerbers\Gerber\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.GBO
+DocumentPath=Project Outputs for UltraZohm_Analog_ADS5272\Gerber\UltraZohm_Analog_ADS5272.GTS
 DItemRevisionGUID=
 
 [GeneratedDocument49]
-DocumentPath=Gerbers\Gerber\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.GBP
+DocumentPath=Gerbers\NC Drill\UltraZohm_Analog_ADS5272.LDP
 DItemRevisionGUID=
 
 [GeneratedDocument50]
-DocumentPath=Gerbers\Gerber\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.GBS
+DocumentPath=Project Outputs for UltraZohm_Analog_ADS5272\NC Drill\UltraZohm_Analog_ADS5272.LDP
 DItemRevisionGUID=
 
 [GeneratedDocument51]
-DocumentPath=Gerbers\Gerber\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.GKO
+DocumentPath=Gerbers\Gerber\UltraZohm_Analog_ADS5272.REP
 DItemRevisionGUID=
 
 [GeneratedDocument52]
-DocumentPath=Gerbers\Gerber\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.GM1
+DocumentPath=Project Outputs for UltraZohm_Analog_ADS5272\Gerber\UltraZohm_Analog_ADS5272.REP
 DItemRevisionGUID=
 
 [GeneratedDocument53]
-DocumentPath=Gerbers\Gerber\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.GM3
+DocumentPath=Gerbers\Gerber\UltraZohm_Analog_ADS5272.RUL
 DItemRevisionGUID=
 
 [GeneratedDocument54]
-DocumentPath=Gerbers\Gerber\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.GM11
+DocumentPath=Project Outputs for UltraZohm_Analog_ADS5272\Gerber\UltraZohm_Analog_ADS5272.RUL
 DItemRevisionGUID=
 
 [GeneratedDocument55]
-DocumentPath=Gerbers\Gerber\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.GM13
+DocumentPath=Gerbers\NC Drill\UltraZohm_Analog_ADS5272.TXT
 DItemRevisionGUID=
 
 [GeneratedDocument56]
-DocumentPath=Gerbers\Gerber\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.GM14
+DocumentPath=Project Outputs for UltraZohm_Analog_ADS5272\NC Drill\UltraZohm_Analog_ADS5272.TXT
 DItemRevisionGUID=
 
 [GeneratedDocument57]
-DocumentPath=Gerbers\Gerber\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.GM15
+DocumentPath=Gerbers\Gerber\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.1
 DItemRevisionGUID=
 
 [GeneratedDocument58]
-DocumentPath=Gerbers\Gerber\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.GM16
+DocumentPath=Gerbers\Gerber\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.2
 DItemRevisionGUID=
 
 [GeneratedDocument59]
-DocumentPath=Gerbers\Gerber\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.GML
+DocumentPath=Gerbers\Gerber\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.3
 DItemRevisionGUID=
 
 [GeneratedDocument60]
-DocumentPath=Gerbers\Gerber\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.GPB
+DocumentPath=Gerbers\Gerber\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.4
 DItemRevisionGUID=
 
 [GeneratedDocument61]
-DocumentPath=Gerbers\Gerber\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.GPT
+DocumentPath=Gerbers\Gerber\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.5
 DItemRevisionGUID=
 
 [GeneratedDocument62]
-DocumentPath=Gerbers\Gerber\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.GTL
+DocumentPath=Gerbers\NC Drill\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.DRR
 DItemRevisionGUID=
 
 [GeneratedDocument63]
-DocumentPath=Gerbers\Gerber\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.GTO
+DocumentPath=Gerbers\Gerber\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.EXTREP
 DItemRevisionGUID=
 
 [GeneratedDocument64]
-DocumentPath=Gerbers\Gerber\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.GTP
+DocumentPath=Gerbers\Gerber\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.G1
 DItemRevisionGUID=
 
 [GeneratedDocument65]
-DocumentPath=Gerbers\Gerber\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.GTS
+DocumentPath=Gerbers\Gerber\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.G2
 DItemRevisionGUID=
 
 [GeneratedDocument66]
-DocumentPath=Gerbers\NC Drill\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.LDP
+DocumentPath=Gerbers\Gerber\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.G3
 DItemRevisionGUID=
 
 [GeneratedDocument67]
-DocumentPath=Gerbers\Gerber\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.REP
+DocumentPath=Gerbers\Gerber\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.G4
 DItemRevisionGUID=
 
 [GeneratedDocument68]
-DocumentPath=Gerbers\Gerber\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.RUL
+DocumentPath=Gerbers\Gerber\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.GBL
 DItemRevisionGUID=
 
 [GeneratedDocument69]
+DocumentPath=Gerbers\Gerber\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.GBO
+DItemRevisionGUID=
+
+[GeneratedDocument70]
+DocumentPath=Gerbers\Gerber\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.GBP
+DItemRevisionGUID=
+
+[GeneratedDocument71]
+DocumentPath=Gerbers\Gerber\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.GBS
+DItemRevisionGUID=
+
+[GeneratedDocument72]
+DocumentPath=Gerbers\Gerber\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.GKO
+DItemRevisionGUID=
+
+[GeneratedDocument73]
+DocumentPath=Gerbers\Gerber\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.GM1
+DItemRevisionGUID=
+
+[GeneratedDocument74]
+DocumentPath=Gerbers\Gerber\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.GM3
+DItemRevisionGUID=
+
+[GeneratedDocument75]
+DocumentPath=Gerbers\Gerber\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.GM11
+DItemRevisionGUID=
+
+[GeneratedDocument76]
+DocumentPath=Gerbers\Gerber\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.GM13
+DItemRevisionGUID=
+
+[GeneratedDocument77]
+DocumentPath=Gerbers\Gerber\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.GM14
+DItemRevisionGUID=
+
+[GeneratedDocument78]
+DocumentPath=Gerbers\Gerber\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.GM15
+DItemRevisionGUID=
+
+[GeneratedDocument79]
+DocumentPath=Gerbers\Gerber\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.GM16
+DItemRevisionGUID=
+
+[GeneratedDocument80]
+DocumentPath=Gerbers\Gerber\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.GML
+DItemRevisionGUID=
+
+[GeneratedDocument81]
+DocumentPath=Gerbers\Gerber\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.GPB
+DItemRevisionGUID=
+
+[GeneratedDocument82]
+DocumentPath=Gerbers\Gerber\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.GPT
+DItemRevisionGUID=
+
+[GeneratedDocument83]
+DocumentPath=Gerbers\Gerber\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.GTL
+DItemRevisionGUID=
+
+[GeneratedDocument84]
+DocumentPath=Gerbers\Gerber\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.GTO
+DItemRevisionGUID=
+
+[GeneratedDocument85]
+DocumentPath=Gerbers\Gerber\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.GTP
+DItemRevisionGUID=
+
+[GeneratedDocument86]
+DocumentPath=Gerbers\Gerber\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.GTS
+DItemRevisionGUID=
+
+[GeneratedDocument87]
+DocumentPath=Gerbers\NC Drill\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.LDP
+DItemRevisionGUID=
+
+[GeneratedDocument88]
+DocumentPath=Gerbers\Gerber\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.REP
+DItemRevisionGUID=
+
+[GeneratedDocument89]
+DocumentPath=Gerbers\Gerber\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.RUL
+DItemRevisionGUID=
+
+[GeneratedDocument90]
 DocumentPath=Gerbers\NC Drill\UltraZohm_Analog_Fast_ADC 1v01 ADS5272 3U.TXT
 DItemRevisionGUID=
 
@@ -602,7 +736,7 @@ SCH_HasExpandLogicalToPhysicalSheets=-1
 SaveSettingsToOutJob=0
 
 [Generic_EDE]
-OutputDir=
+OutputDir=Project Outputs for UltraZohm_Analog_ADS5272
 
 [OutputGroup1]
 Name=Netlist Outputs
@@ -1259,6 +1393,36 @@ OutputName11=Specctra Design PCB
 OutputDocumentPath11=
 OutputVariantName11=
 OutputDefault11=0
+OutputType12=Ansoft Neutral
+OutputName12=Ansoft Neutral (AutoPCB)
+OutputDocumentPath12=
+OutputVariantName12=
+OutputDefault12=0
+OutputType13=HyperLynx
+OutputName13=HyperLynx (AutoPCB)
+OutputDocumentPath13=
+OutputVariantName13=
+OutputDefault13=0
+OutputType14=Orcad v7 Capture Design
+OutputName14=Orcad v7 Capture Design (AutoSCH)
+OutputDocumentPath14=
+OutputVariantName14=
+OutputDefault14=0
+OutputType15=P-CAD ASCII
+OutputName15=P-CAD ASCII (AutoPCB)
+OutputDocumentPath15=
+OutputVariantName15=
+OutputDefault15=0
+OutputType16=P-CAD V16 Schematic Design
+OutputName16=P-CAD V16 Schematic Design (AutoSCH)
+OutputDocumentPath16=
+OutputVariantName16=
+OutputDefault16=0
+OutputType17=SiSoft
+OutputName17=SiSoft (AutoPCB)
+OutputDocumentPath17=
+OutputVariantName17=
+OutputDefault17=0
 
 [OutputGroup10]
 Name=PostProcess Outputs
