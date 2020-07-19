@@ -28,7 +28,7 @@ DItemRevisionGUID=
 ReportSuppressedErrorsInMessages=0
 FSMCodingStyle=eFMSDropDownList_OneProcess
 FSMEncodingStyle=eFMSDropDownList_OneHot
-OutputPath=Project Outputs for UltraZohm_Analog_ADS5272
+OutputPath=
 LogFolderPath=
 ManagedProjectGUID=
 IncludeDesignInRelease=0
@@ -297,7 +297,7 @@ UniqueID=19E6BDC2-7148-419A-87A1-C6B392C5D6EE
 Description=No Variation
 AllowFabrication=0
 ParameterCount=0
-VariationCount=42
+VariationCount=50
 Variation1=Designator=DebugA|UniqueId=\1GCQEEMVP\MRQHJPQA|Kind=1|AlternatePart= 
 Variation2=Designator=DebugD|UniqueId=\4GCQEEMVP\MRQHJPQA|Kind=1|AlternatePart= 
 Variation3=Designator=DebugH|UniqueId=\8CNMLVOZI\MRQHJPQA|Kind=1|AlternatePart= 
@@ -340,6 +340,14 @@ Variation39=Designator=TP6|UniqueId=\XYUWCZUH|Kind=1|AlternatePart=
 Variation40=Designator=TP13|UniqueId=\LESGNRWG|Kind=1|AlternatePart= 
 Variation41=Designator=TP3|UniqueId=\HIKQUFMN\YBZUMDGZ|Kind=1|AlternatePart= 
 Variation42=Designator=X3|UniqueId=\HIKQUFMN\OGIBOZKQ|Kind=1|AlternatePart= 
+Variation43=Designator=R29A|UniqueId=\UWYLPIPS\ITFFEYOY|Kind=1|AlternatePart= 
+Variation44=Designator=R29B|UniqueId=\ODFZFNFP\ITFFEYOY|Kind=1|AlternatePart= 
+Variation45=Designator=R47B|UniqueId=\ODFZFNFP\QDEGZQRN|Kind=1|AlternatePart= 
+Variation46=Designator=R47A|UniqueId=\UWYLPIPS\QDEGZQRN|Kind=1|AlternatePart= 
+Variation47=Designator=R42A|UniqueId=\UWYLPIPS\GRUZFZBV|Kind=1|AlternatePart= 
+Variation48=Designator=R30B|UniqueId=\ODFZFNFP\KQEZJEAH|Kind=1|AlternatePart= 
+Variation49=Designator=R42B|UniqueId=\ODFZFNFP\GRUZFZBV|Kind=1|AlternatePart= 
+Variation50=Designator=R30A|UniqueId=\UWYLPIPS\KQEZJEAH|Kind=1|AlternatePart= 
 ParamVariationCount=0
 
 [GeneratedDocument1]
@@ -477,7 +485,7 @@ SCH_HasExpandLogicalToPhysicalSheets=-1
 SaveSettingsToOutJob=0
 
 [Generic_EDE]
-OutputDir=Project Outputs for UltraZohm_Analog_ADS5272
+OutputDir=
 
 [OutputGroup1]
 Name=Netlist Outputs
