@@ -1,5 +1,5 @@
 ----------------------------------------------------------------------------------------------------------------------------------
-NCDrill File Report For: UltraZohm_Analog_ADS5272.PcbDoc   19.07.2020  10:15:54
+NCDrill File Report For: UltraZohm_Analog_ADS5272.PcbDoc   08.09.2020  10:25:24
 ----------------------------------------------------------------------------------------------------------------------------------
 
 Layer Pair : Top Layer to Bottom Layer
@@ -7,8 +7,8 @@ ASCII RoundHoles File : UltraZohm_Analog_ADS5272.TXT
 
 Tool       Hole Size               Hole Tolerance               Hole Type       Hole Count   Plated         Tool Travel
 ----------------------------------------------------------------------------------------------------------------------------------
-T1      8mil (0.2mm)                                              Round             214       PTH        0.00inch (0.00mm)
-T2      12mil (0.3mm)                                             Round             338       PTH        0.00inch (0.00mm)
+T1      8mil (0.2mm)                                              Round             420       PTH        0.00inch (0.00mm)
+T2      12mil (0.3mm)                                             Round             139       PTH        0.00inch (0.00mm)
 T3      16mil (0.4mm)                                             Round             4         PTH        0.00inch (0.00mm)
 T4      28mil (0.7mm)                                             Round             48        PTH        0.00inch (0.00mm)
 T5      32mil (0.8mm)                                             Round             5         PTH        0.00inch (0.00mm)
@@ -18,6 +18,6 @@ T8      40mil (1.016mm)                                           Round         
 T9      63mil (1.6mm)                                             Round             13        PTH        0.00inch (0.00mm)
 T10     128mil (3.25mm)                                           Round             2         NPTH       0.00inch (0.00mm)
 ----------------------------------------------------------------------------------------------------------------------------------
-Totals                                                                              654
+Totals                                                                              661
 
 Total Processing Time (hh:mm:ss) : 00:00:00

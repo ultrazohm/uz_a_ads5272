@@ -2,6 +2,44 @@
 FileName = UltraZohm_Analog_ADS5272.GBR
 AutoAperture = True
 *************************************************************
+Generating : Bottom Layer
+      File : UltraZohm_Analog_ADS5272.GBL
+
+    Adding Layer      : Bottom Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D16
+    D23
+    D25
+    D41
+    D107
+    D109
+    D115
+    D116
+    D118
+    D119
+    D120
+    D121
+    D122
+    D123
+    D124
+    D125
+    D126
+    D127
+    D128
+    D129
+    D130
+    D131
+    D132
+    D133
+    D134
+    D135
+*************************************************************
+
+*************************************************************
 Generating : Signal 1
       File : UltraZohm_Analog_ADS5272.G4
 
@@ -11,13 +49,15 @@ Generating : Signal 1
 
 
 Used DCodes :
-    D18
-    D95
-    D99
-    D101
-    D113
-    D114
+    D16
+    D107
+    D109
     D115
+    D117
+    D119
+    D127
+    D130
+    D132
 *************************************************************
 
 *************************************************************
@@ -30,13 +70,10 @@ Generating : GND
 
 
 Used DCodes :
-    D18
-    D95
-    D98
-    D103
-    D104
-    D113
-    D114
+    D107
+    D115
+    D130
+    D131
 *************************************************************
 
 *************************************************************
@@ -49,11 +86,11 @@ Generating : VCC
 
 
 Used DCodes :
-    D95
-    D97
-    D103
-    D110
-    D114
+    D16
+    D107
+    D119
+    D120
+    D131
 *************************************************************
 
 *************************************************************
@@ -66,14 +103,13 @@ Generating : AGND
 
 
 Used DCodes :
-    D18
-    D95
-    D97
-    D101
-    D103
-    D110
-    D113
-    D114
+    D16
+    D107
+    D119
+    D120
+    D122
+    D130
+    D131
 *************************************************************
 
 *************************************************************
@@ -86,9 +122,8 @@ Generating : Top Layer
 
 
 Used DCodes :
-    D18
-    D22
-    D24
+    D16
+    D23
     D25
     D26
     D27
@@ -96,7 +131,6 @@ Used DCodes :
     D29
     D30
     D31
-    D32
     D33
     D34
     D35
@@ -118,7 +152,92 @@ Used DCodes :
     D51
     D52
     D53
+    D54
+    D55
+    D56
+    D57
+    D107
+    D109
+    D110
+    D111
+    D112
+    D113
+    D114
+    D115
+    D116
+    D117
+    D118
+    D119
+    D120
+    D121
+    D122
+    D123
+    D124
+    D125
+    D126
+    D127
+    D128
+    D129
+    D130
+    D131
+    D132
+    D133
+*************************************************************
+
+*************************************************************
+Generating : Board
+      File : UltraZohm_Analog_ADS5272.GM1
+
+    Adding Layer      : Board
+
+
+Used DCodes :
+    D14
+    D16
+*************************************************************
+
+*************************************************************
+Generating : Bottom Overlay
+      File : UltraZohm_Analog_ADS5272.GBO
+
+    Adding Layer      : Bottom Overlay
+
+
+Used DCodes :
+*************************************************************
+
+*************************************************************
+Generating : Bottom Paste
+      File : UltraZohm_Analog_ADS5272.GBP
+
+    Adding Layer      : Bottom Paste
+
+    Adding Layer      : Bottom Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D41
+*************************************************************
+
+*************************************************************
+Generating : Bottom Solder
+      File : UltraZohm_Analog_ADS5272.GBS
+
+    Adding Layer      : Bottom Solder
+
+    Adding Layer      : Bottom Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D73
+    D93
+    D94
     D95
+    D96
     D97
     D98
     D99
@@ -129,84 +248,6 @@ Used DCodes :
     D104
     D105
     D106
-    D107
-    D108
-    D109
-    D110
-    D111
-    D112
-    D113
-    D114
-    D115
-    D116
-*************************************************************
-
-*************************************************************
-Generating : Top Overlay
-      File : UltraZohm_Analog_ADS5272.GTO
-
-    Adding Layer      : Top Overlay
-
-
-Used DCodes :
-    D10
-    D11
-    D12
-    D13
-    D14
-    D15
-    D16
-    D17
-    D18
-    D19
-    D20
-    D21
-    D22
-    D23
-*************************************************************
-
-*************************************************************
-Generating : Top Paste
-      File : UltraZohm_Analog_ADS5272.GTP
-
-    Adding Layer      : Top Paste
-
-    Adding Layer      : Top Layer
-
-    Adding Layer      : Multi-Layer
-
-
-Used DCodes :
-    D24
-    D25
-    D26
-    D27
-    D28
-    D29
-    D30
-    D31
-    D32
-    D33
-    D34
-    D35
-    D36
-    D37
-    D38
-    D39
-    D40
-    D41
-    D42
-    D43
-    D44
-    D45
-    D46
-    D47
-    D48
-    D49
-    D50
-    D51
-    D52
-    D53
 *************************************************************
 
 *************************************************************
@@ -221,10 +262,6 @@ Generating : Top Solder
 
 
 Used DCodes :
-    D54
-    D55
-    D56
-    D57
     D58
     D59
     D60
@@ -264,28 +301,7 @@ Used DCodes :
     D94
     D95
     D96
-*************************************************************
-
-*************************************************************
-Generating : Bottom Layer
-      File : UltraZohm_Analog_ADS5272.GBL
-
-    Adding Layer      : Bottom Layer
-
-    Adding Layer      : Multi-Layer
-
-
-Used DCodes :
-    D18
-    D22
-    D24
-    D27
-    D42
-    D46
-    D47
-    D50
-    D51
-    D95
+    D97
     D98
     D99
     D100
@@ -297,123 +313,77 @@ Used DCodes :
     D106
     D107
     D108
-    D109
-    D110
-    D111
-    D112
-    D113
-    D114
-    D115
-    D116
-    D117
-    D118
-    D119
-    D120
-    D121
-    D122
-    D123
-    D124
-    D125
-    D126
 *************************************************************
 
 *************************************************************
-Generating : Board
-      File : UltraZohm_Analog_ADS5272.GM1
+Generating : Top Paste
+      File : UltraZohm_Analog_ADS5272.GTP
 
-    Adding Layer      : Board
+    Adding Layer      : Top Paste
+
+    Adding Layer      : Top Layer
+
+    Adding Layer      : Multi-Layer
 
 
 Used DCodes :
-    D12
-    D18
+    D26
+    D27
+    D28
+    D29
+    D30
+    D31
+    D32
+    D33
+    D34
+    D35
+    D36
+    D37
+    D38
+    D39
+    D40
+    D41
+    D42
+    D43
+    D44
+    D45
+    D46
+    D47
+    D48
+    D49
+    D50
+    D51
+    D52
+    D53
+    D54
+    D55
+    D56
+    D57
 *************************************************************
 
 *************************************************************
-Generating : Bottom Overlay
-      File : UltraZohm_Analog_ADS5272.GBO
+Generating : Top Overlay
+      File : UltraZohm_Analog_ADS5272.GTO
 
-    Adding Layer      : Bottom Overlay
+    Adding Layer      : Top Overlay
 
 
 Used DCodes :
     D10
     D11
     D12
+    D13
     D14
     D15
+    D16
+    D17
     D18
-    D136
-*************************************************************
-
-*************************************************************
-Generating : Bottom Paste
-      File : UltraZohm_Analog_ADS5272.GBP
-
-    Adding Layer      : Bottom Paste
-
-    Adding Layer      : Bottom Layer
-
-    Adding Layer      : Multi-Layer
-
-
-Used DCodes :
+    D19
+    D20
+    D21
+    D22
+    D23
     D24
-    D27
-    D42
-    D46
-    D47
-    D50
-    D51
-    D117
-    D119
-    D120
-    D121
-    D122
-    D123
-    D124
-    D135
-*************************************************************
-
-*************************************************************
-Generating : Bottom Solder
-      File : UltraZohm_Analog_ADS5272.GBS
-
-    Adding Layer      : Bottom Solder
-
-    Adding Layer      : Bottom Layer
-
-    Adding Layer      : Multi-Layer
-
-
-Used DCodes :
-    D54
-    D57
-    D72
-    D76
-    D77
-    D80
-    D81
-    D82
-    D83
-    D84
-    D85
-    D86
-    D87
-    D88
-    D89
-    D90
-    D91
-    D92
-    D93
-    D94
-    D127
-    D128
-    D129
-    D130
-    D131
-    D132
-    D133
-    D134
+    D25
 *************************************************************
 
