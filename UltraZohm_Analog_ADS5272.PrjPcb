@@ -31,7 +31,7 @@ ReportSuppressedErrorsInMessages=0
 FSMCodingStyle=eFMSDropDownList_OneProcess
 FSMEncodingStyle=eFMSDropDownList_OneHot
 IsProjectConflictPreventionWarningsEnabled=1
-OutputPath=
+OutputPath=Project Outputs for UltraZohm_Analog_ADS5272
 LogFolderPath=
 ManagedProjectGUID=
 IncludeDesignInRelease=0
@@ -300,7 +300,7 @@ UniqueID=19E6BDC2-7148-419A-87A1-C6B392C5D6EE
 Description=No Variation
 AllowFabrication=0
 ParameterCount=0
-VariationCount=46
+VariationCount=45
 Variation1=Designator=DebugA|UniqueId=\1GCQEEMVP\MRQHJPQA|Kind=1|AlternatePart= 
 Variation2=Designator=DebugD|UniqueId=\4GCQEEMVP\MRQHJPQA|Kind=1|AlternatePart= 
 Variation3=Designator=DebugH|UniqueId=\8CNMLVOZI\MRQHJPQA|Kind=1|AlternatePart= 
@@ -342,15 +342,94 @@ Variation38=Designator=P5|UniqueId=\CEJWSPPP\MXPQHREG|Kind=1|AlternatePart=
 Variation39=Designator=P7|UniqueId=\CEJWSPPP\PKLAVXEE|Kind=1|AlternatePart= 
 Variation40=Designator=P6|UniqueId=\CEJWSPPP\DUFCDRHL|Kind=1|AlternatePart= 
 Variation41=Designator=P8|UniqueId=\CEJWSPPP\INPHRBIF|Kind=1|AlternatePart= 
-Variation42=Designator=R14|UniqueId=\UIYFAQGC\BKJOEDNR|Kind=1|AlternatePart= 
-Variation43=Designator=P3|UniqueId=\CEJWSPPP\QPNHFPCW|Kind=1|AlternatePart= 
-Variation44=Designator=P11|UniqueId=\MKOSXMCC|Kind=1|AlternatePart= 
-Variation45=Designator=P12|UniqueId=\OBQFBTQD|Kind=1|AlternatePart= 
-Variation46=Designator=R180|UniqueId=\UIYFAQGC\WICABNYQ|Kind=1|AlternatePart= 
+Variation42=Designator=P3|UniqueId=\CEJWSPPP\QPNHFPCW|Kind=1|AlternatePart= 
+Variation43=Designator=P11|UniqueId=\MKOSXMCC|Kind=1|AlternatePart= 
+Variation44=Designator=P12|UniqueId=\OBQFBTQD|Kind=1|AlternatePart= 
+Variation45=Designator=R180|UniqueId=\UIYFAQGC\WICABNYQ|Kind=1|AlternatePart= 
 ParamVariationCount=0
 
 [GeneratedDocument1]
 DocumentPath=Project Outputs for UltraZohm_Analog_ADS5272\BOM\BOM_UltraZohm_Analog_ADS5272_3v01.xlsx
+DItemRevisionGUID=
+
+[GeneratedDocument2]
+DocumentPath=Project Outputs for UltraZohm_Analog_ADS5272\Pick Place\PickPlace_UltraZohm_Analog_ADS5272_3v01.txt
+DItemRevisionGUID=
+
+[GeneratedDocument3]
+DocumentPath=Project Outputs for UltraZohm_Analog_ADS5272\NC Drill\UltraZohm_Analog_ADS5272.DRR
+DItemRevisionGUID=
+
+[GeneratedDocument4]
+DocumentPath=Project Outputs for UltraZohm_Analog_ADS5272\Gerber\UltraZohm_Analog_ADS5272.EXTREP
+DItemRevisionGUID=
+
+[GeneratedDocument5]
+DocumentPath=Project Outputs for UltraZohm_Analog_ADS5272\Gerber\UltraZohm_Analog_ADS5272.G1
+DItemRevisionGUID=
+
+[GeneratedDocument6]
+DocumentPath=Project Outputs for UltraZohm_Analog_ADS5272\Gerber\UltraZohm_Analog_ADS5272.G2
+DItemRevisionGUID=
+
+[GeneratedDocument7]
+DocumentPath=Project Outputs for UltraZohm_Analog_ADS5272\Gerber\UltraZohm_Analog_ADS5272.G3
+DItemRevisionGUID=
+
+[GeneratedDocument8]
+DocumentPath=Project Outputs for UltraZohm_Analog_ADS5272\Gerber\UltraZohm_Analog_ADS5272.G4
+DItemRevisionGUID=
+
+[GeneratedDocument9]
+DocumentPath=Project Outputs for UltraZohm_Analog_ADS5272\Gerber\UltraZohm_Analog_ADS5272.GBL
+DItemRevisionGUID=
+
+[GeneratedDocument10]
+DocumentPath=Project Outputs for UltraZohm_Analog_ADS5272\Gerber\UltraZohm_Analog_ADS5272.GBO
+DItemRevisionGUID=
+
+[GeneratedDocument11]
+DocumentPath=Project Outputs for UltraZohm_Analog_ADS5272\Gerber\UltraZohm_Analog_ADS5272.GBP
+DItemRevisionGUID=
+
+[GeneratedDocument12]
+DocumentPath=Project Outputs for UltraZohm_Analog_ADS5272\Gerber\UltraZohm_Analog_ADS5272.GBS
+DItemRevisionGUID=
+
+[GeneratedDocument13]
+DocumentPath=Project Outputs for UltraZohm_Analog_ADS5272\Gerber\UltraZohm_Analog_ADS5272.GM1
+DItemRevisionGUID=
+
+[GeneratedDocument14]
+DocumentPath=Project Outputs for UltraZohm_Analog_ADS5272\Gerber\UltraZohm_Analog_ADS5272.GTL
+DItemRevisionGUID=
+
+[GeneratedDocument15]
+DocumentPath=Project Outputs for UltraZohm_Analog_ADS5272\Gerber\UltraZohm_Analog_ADS5272.GTO
+DItemRevisionGUID=
+
+[GeneratedDocument16]
+DocumentPath=Project Outputs for UltraZohm_Analog_ADS5272\Gerber\UltraZohm_Analog_ADS5272.GTP
+DItemRevisionGUID=
+
+[GeneratedDocument17]
+DocumentPath=Project Outputs for UltraZohm_Analog_ADS5272\Gerber\UltraZohm_Analog_ADS5272.GTS
+DItemRevisionGUID=
+
+[GeneratedDocument18]
+DocumentPath=Project Outputs for UltraZohm_Analog_ADS5272\NC Drill\UltraZohm_Analog_ADS5272.LDP
+DItemRevisionGUID=
+
+[GeneratedDocument19]
+DocumentPath=Project Outputs for UltraZohm_Analog_ADS5272\Gerber\UltraZohm_Analog_ADS5272.REP
+DItemRevisionGUID=
+
+[GeneratedDocument20]
+DocumentPath=Project Outputs for UltraZohm_Analog_ADS5272\Gerber\UltraZohm_Analog_ADS5272.RUL
+DItemRevisionGUID=
+
+[GeneratedDocument21]
+DocumentPath=Project Outputs for UltraZohm_Analog_ADS5272\NC Drill\UltraZohm_Analog_ADS5272.TXT
 DItemRevisionGUID=
 
 [Parameter1]
@@ -404,7 +483,7 @@ SCH_HasExpandLogicalToPhysicalSheets=-1
 SaveSettingsToOutJob=0
 
 [Generic_EDE]
-OutputDir=
+OutputDir=Project Outputs for UltraZohm_Analog_ADS5272
 
 [OutputGroup1]
 Name=Netlist Outputs
@@ -989,6 +1068,36 @@ OutputName11=Specctra Design PCB
 OutputDocumentPath11=
 OutputVariantName11=
 OutputDefault11=0
+OutputType12=Ansoft Neutral
+OutputName12=Ansoft Neutral (AutoPCB)
+OutputDocumentPath12=
+OutputVariantName12=
+OutputDefault12=0
+OutputType13=HyperLynx
+OutputName13=HyperLynx (AutoPCB)
+OutputDocumentPath13=
+OutputVariantName13=
+OutputDefault13=0
+OutputType14=Orcad v7 Capture Design
+OutputName14=Orcad v7 Capture Design (AutoSCH)
+OutputDocumentPath14=
+OutputVariantName14=
+OutputDefault14=0
+OutputType15=P-CAD ASCII
+OutputName15=P-CAD ASCII (AutoPCB)
+OutputDocumentPath15=
+OutputVariantName15=
+OutputDefault15=0
+OutputType16=P-CAD V16 Schematic Design
+OutputName16=P-CAD V16 Schematic Design (AutoSCH)
+OutputDocumentPath16=
+OutputVariantName16=
+OutputDefault16=0
+OutputType17=SiSoft
+OutputName17=SiSoft (AutoPCB)
+OutputDocumentPath17=
+OutputVariantName17=
+OutputDefault17=0
 
 [OutputGroup10]
 Name=PostProcess Outputs
