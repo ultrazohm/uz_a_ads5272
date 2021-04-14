@@ -28,7 +28,7 @@ DItemRevisionGUID=
 ReportSuppressedErrorsInMessages=0
 FSMCodingStyle=eFMSDropDownList_OneProcess
 FSMEncodingStyle=eFMSDropDownList_OneHot
-OutputPath=
+OutputPath=Project Outputs for UltraZohm_Analog_ADS5272
 LogFolderPath=
 ManagedProjectGUID=
 IncludeDesignInRelease=0
@@ -297,7 +297,7 @@ UniqueID=19E6BDC2-7148-419A-87A1-C6B392C5D6EE
 Description=SMD_Assembly
 AllowFabrication=0
 ParameterCount=0
-VariationCount=45
+VariationCount=49
 Variation1=Designator=DebugA|UniqueId=\1GCQEEMVP\MRQHJPQA|Kind=1|AlternatePart= 
 Variation2=Designator=DebugD|UniqueId=\4GCQEEMVP\MRQHJPQA|Kind=1|AlternatePart= 
 Variation3=Designator=DebugH|UniqueId=\8CNMLVOZI\MRQHJPQA|Kind=1|AlternatePart= 
@@ -343,6 +343,10 @@ Variation42=Designator=P3|UniqueId=\CEJWSPPP\QPNHFPCW|Kind=1|AlternatePart=
 Variation43=Designator=P11|UniqueId=\MKOSXMCC|Kind=1|AlternatePart= 
 Variation44=Designator=P12|UniqueId=\OBQFBTQD|Kind=1|AlternatePart= 
 Variation45=Designator=R180|UniqueId=\UIYFAQGC\WICABNYQ|Kind=1|AlternatePart= 
+Variation46=Designator=C60|UniqueId=\HIKQUFMN\VEEUBDLF|Kind=1|AlternatePart= 
+Variation47=Designator=C61|UniqueId=\HIKQUFMN\OODONPZS|Kind=1|AlternatePart= 
+Variation48=Designator=JTAG CPLD|UniqueId=\OBSMIHDR\NDLFYATG|Kind=1|AlternatePart= 
+Variation49=Designator=J1|UniqueId=\RQCSKXFE\ATRZKYWI|Kind=1|AlternatePart= 
 ParamVariationCount=0
 
 [GeneratedDocument1]
@@ -426,10 +430,6 @@ DocumentPath=Project Outputs for UltraZohm_Analog_ADS5272\Gerber\UltraZohm_Analo
 DItemRevisionGUID=
 
 [GeneratedDocument21]
-DocumentPath=Project Outputs for UltraZohm_Analog_ADS5272\ExportSTEP\UltraZohm_Analog_ADS5272.step
-DItemRevisionGUID=
-
-[GeneratedDocument22]
 DocumentPath=Project Outputs for UltraZohm_Analog_ADS5272\NC Drill\UltraZohm_Analog_ADS5272.TXT
 DItemRevisionGUID=
 
@@ -484,7 +484,7 @@ SCH_HasExpandLogicalToPhysicalSheets=-1
 SaveSettingsToOutJob=0
 
 [Generic_EDE]
-OutputDir=
+OutputDir=Project Outputs for UltraZohm_Analog_ADS5272
 
 [OutputGroup1]
 Name=Netlist Outputs
