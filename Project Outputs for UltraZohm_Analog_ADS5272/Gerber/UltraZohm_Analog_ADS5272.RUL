@@ -1,4 +1,4 @@
-DRC Rules Export File for PCB: C:\Users\david\Documents\Altium_projects\UltraZohm\UZ_A_ADS5272\UltraZohm_Analog_ADS5272.PcbDoc
+DRC Rules Export File for PCB: C:\Users\hm-kreppel\Documents\Altium Projects\uz_a_ads5272\UltraZohm_Analog_ADS5272.PcbDoc
 RuleKind=MinimumAnnularRing|RuleName=MinimumAnnularRing|Scope=Board|Minimum=3.00
 RuleKind=ShortCircuit|RuleName=ShortCircuit|Scope=Board|Allowed=0
 RuleKind=SolderMaskExpansion|RuleName=SolderMaskExpansion|Scope=Board|Minimum=4.00

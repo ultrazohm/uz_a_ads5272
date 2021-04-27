@@ -1,20 +1,20 @@
 G04*
-G04 #@! TF.GenerationSoftware,Altium Limited,Altium Designer,20.2.3 (150)*
+G04 #@! TF.GenerationSoftware,Altium Limited,Altium Designer,21.2.1 (34)*
 G04*
 G04 Layer_Color=16711935*
 %FSLAX25Y25*%
 %MOIN*%
 G70*
 G04*
-G04 #@! TF.SameCoordinates,A62ED044-34EF-4C35-90D6-C9DE7C21F0D3*
+G04 #@! TF.SameCoordinates,65DA51D8-25F9-4D4C-9FAC-6091F3E90A57*
 G04*
 G04*
 G04 #@! TF.FilePolarity,Positive*
 G04*
 G01*
 G75*
-%ADD13C,0.00500*%
-D13*
+%ADD11C,0.00500*%
+D11*
 X547626Y181D02*
 G03*
 X555500Y8055I0J7874D01*
